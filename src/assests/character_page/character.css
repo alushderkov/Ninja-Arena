@@ -1,0 +1,25 @@
+@import url("../variables.css");
+@import url("../dom_elements/card/card.css");
+
+body {
+    background-color: var(--background-colour);
+}
+
+.search-form {
+    display: flex;
+    align-items: center;
+    color: var(--font-colour);
+    margin: 25px;
+}
+
+.search-form__label {
+    font-size: 2rem;
+}
+
+.search-form__input {
+    font-size: 2rem;
+}
+
+.search-form__button {
+    font-size: 2rem;
+}
