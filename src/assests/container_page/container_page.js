@@ -1,7 +1,7 @@
-import { cardsHTML } from "../../../build/assests/container_page/container_init.js"
+import { cards } from "../../../build/assests/container_page/container_init.js"
 
-console.log(cardsHTML);
+const container = document.getElementsByClassName("container")[0];
 
-const body = document.getElementsByTagName("body")[0];
+let cardsHTML = cards.createHTMLCode();
 
-body.innerHTML = cardsHTML;
+container.innerHTML = cardsHTML;

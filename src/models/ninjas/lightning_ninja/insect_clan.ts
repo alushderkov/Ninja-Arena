@@ -1,6 +1,6 @@
 import {Organizations, Rank, Villages} from '../ninja';
 import {lightningNinja} from "./lightning_ninja";
-import {Action, Opponents} from "../../arena/opponents";
+import {Action, Opponents} from "../../../assests/dom_elements/arena/opponents";
 
 export class insectClanNinja extends lightningNinja {
   "_bug count": number;

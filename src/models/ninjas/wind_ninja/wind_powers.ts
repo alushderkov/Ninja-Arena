@@ -1,4 +1,4 @@
-import {Opponents} from "../../arena/opponents";
+import {Opponents} from "../../../assests/dom_elements/arena/opponents";
 
 export function windBlade(arena: Opponents): Opponents {
   let result: Opponents;

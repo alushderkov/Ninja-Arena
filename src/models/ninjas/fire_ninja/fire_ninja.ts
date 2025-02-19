@@ -1,6 +1,6 @@
 import {Ninja, Organizations, Rank, Villages} from '../ninja';
 import {fireBall, heartOfHell, fireDestruction} from "./fire_powers";
-import {Action, Opponents} from "../../arena/opponents";
+import {Action, Opponents} from "../../../assests/dom_elements/arena/opponents";
 
 export class fireNinja extends Ninja {
   "_flame power": number;

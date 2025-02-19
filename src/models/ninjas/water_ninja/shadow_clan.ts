@@ -1,6 +1,6 @@
 import {Organizations, Rank, Villages} from "../ninja";
 import {waterNinja} from "./water_ninja";
-import {Action, Opponents} from "../../arena/opponents";
+import {Action, Opponents} from "../../../assests/dom_elements/arena/opponents";
 
 export class shadowClanNinja extends waterNinja {
   _shadow_size: number;

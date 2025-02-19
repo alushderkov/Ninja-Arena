@@ -1,6 +1,6 @@
 import {Ninja, Organizations, Rank, Villages} from '../ninja';
 import {windBlade, airEssence, tornado} from "./wind_powers";
-import {Action, Opponents} from "../../arena/opponents";
+import {Action, Opponents} from "../../../assests/dom_elements/arena/opponents";
 
 export class windNinja extends Ninja {
   "_wind speed": number;

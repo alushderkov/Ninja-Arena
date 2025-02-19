@@ -1,6 +1,6 @@
 import {Organizations, Rank, Villages} from '../ninja';
 import {fireNinja} from "./fire_ninja";
-import {Action, Opponents} from "../../arena/opponents";
+import {Action, Opponents} from "../../../assests/dom_elements/arena/opponents";
 
 export class eyesClanNinja extends fireNinja {
   _eye_level: number;

@@ -1,5 +1,5 @@
 import { windNinja } from "./wind_ninja.js";
-import { Action } from "../../arena/opponents.js";
+import { Action } from "../../../assests/dom_elements/arena/opponents.js";
 export class medicalClanNinja extends windNinja {
     constructor(name, health, chakra, rank, organization, village, appearance, arena_view, charge, experience) {
         super(name, health, chakra, rank, organization, village, appearance, arena_view, charge);

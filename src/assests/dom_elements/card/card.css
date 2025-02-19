@@ -1,8 +1,9 @@
+@import url("../../variables.css");
+
 :root {
     --border-view: 1px solid #655591;
     --cardtext-size: 1.1em;
     --card-colour: rgba(77, 71, 117, 0.55);
-    --font-colour: #c5c2ea;
     --angles: 20px;
 }
 

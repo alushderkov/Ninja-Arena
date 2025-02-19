@@ -1,6 +1,6 @@
 import {Organizations, Rank, Villages} from "../ninja";
 import {windNinja} from "./wind_ninja";
-import {Action, Opponents} from "../../arena/opponents";
+import {Action, Opponents} from "../../../assests/dom_elements/arena/opponents";
 
 export class medicalClanNinja extends windNinja {
   _experience: number;

@@ -1,12 +1,21 @@
 @import url("../dom_elements/card/card.css");
-
-:root {
-    --beauty-gray: #2d2b3c;
-}
+@import url("../variables.css");
 
 body {
-    background-color: var(--beauty-gray);
+    background-color: var(--background-colour);
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+
+}
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+h1 {
+    color: var(--font-colour);
+    font-size: 3rem;
 }

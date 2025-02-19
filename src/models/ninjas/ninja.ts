@@ -1,4 +1,4 @@
-import {Opponents} from "../arena/opponents";
+import {Opponents} from "../../assests/dom_elements/arena/opponents";
 
 export const baseImagesPath: string = `../../../../src/components/characters`;
 export enum Rank {

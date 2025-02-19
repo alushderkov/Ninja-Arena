@@ -1,6 +1,6 @@
 import {Ninja, Organizations, Rank, Villages} from '../ninja';
 import {waterDragon, holySpring, greatWaterfall} from "./water_powers";
-import {Action, Opponents} from "../../arena/opponents";
+import {Action, Opponents} from "../../../assests/dom_elements/arena/opponents";
 
 export class waterNinja extends Ninja {
   "_water volume": number;
