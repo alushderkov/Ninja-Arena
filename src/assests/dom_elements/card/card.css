@@ -1,0 +1,59 @@
+:root {
+    --border-view: 1px solid #655591;
+    --cardtext-size: 1.1em;
+    --card-colour: rgba(77, 71, 117, 0.55);
+    --font-colour: #c5c2ea;
+    --angles: 20px;
+}
+
+.character-card {
+    display: flex;
+    width: 242px;
+    height: 380px;
+    border: var(--border-view);
+    border-radius: var(--angles);
+    box-sizing: border-box;
+    flex-wrap: wrap;
+    margin: 25px;
+}
+
+.character-card__photo {
+    width: 100%;
+    height: 64%;
+    box-sizing: border-box;
+}
+
+.character-card__img {
+    width: 100%;
+    height: 100%;
+    border-top-left-radius: var(--angles);
+    border-top-right-radius: var(--angles);
+}
+
+.character-card__name {
+    width: 100%;
+    height: 6%;
+    font-size: var(--cardtext-size);
+    color: var(--font-colour);
+    text-align: center;
+    border-top: var(--border-view);
+    box-sizing: border-box;
+}
+
+.character-card__field {
+    width: 50%;
+    height: 6%;
+    font-size: var(--cardtext-size);
+    color: var(--font-colour);
+    text-align: center;
+    border-top: var(--border-view);
+    box-sizing: border-box;
+}
+
+.character-card__field_property {
+    border-right: var(--border-view);
+}
+
+.character-card_colour {
+    background-color: var(--card-colour);
+}

@@ -1,0 +1,12 @@
+@import url("../dom_elements/card/card.css");
+
+:root {
+    --beauty-gray: #2d2b3c;
+}
+
+body {
+    background-color: var(--beauty-gray);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}

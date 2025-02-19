@@ -1,0 +1,10 @@
+npm install ts-add-js-extension --save-dev
+
+package.json:
+{
+  "scripts": {
+    "build": "tsc && ts-add-js-extension --dir=dist"
+  }
+}
+
+npm run build
