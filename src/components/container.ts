@@ -33,5 +33,5 @@ Container.push(Shikaku);
 Container.push(Shikamaru);
 Container.push(Shino);
 Container.push(Torune);
-Container.push(Tsunade);
+// Container.push(Tsunade);
 
