@@ -1,4 +1,4 @@
-import {NinjaType} from "../models/ninjas/ninja_type";
+import {Ninja} from "../models/ninjas/ninja";
 import {Hinata} from "./characters/hinata/hinata";
 import {Itachi} from "./characters/itachi/itachi";
 import {Jiraiya} from "./characters/jiraiya/jiraiya";
@@ -16,7 +16,7 @@ import {Torune} from "./characters/torune/torune";
 import {Tsunade} from "./characters/tsunade/tsunade";
 import {Shikamaru} from "./characters/shikamaru/shikamaru";
 
-export let Container: Array<NinjaType> = [];
+export let Container: Array<Ninja> = [];
 
 Container.push(Hinata);
 Container.push(Itachi);
@@ -33,5 +33,5 @@ Container.push(Shikaku);
 Container.push(Shikamaru);
 Container.push(Shino);
 Container.push(Torune);
-// Container.push(Tsunade);
+Container.push(Tsunade);
 

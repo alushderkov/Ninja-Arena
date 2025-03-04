@@ -1,4 +1,7 @@
-import { cards } from "../../../build/assests/container_page/container_init.js";
+import {Container} from "../../../build/components/container.js";
+import {cardContainer} from "../../../build/assets/container_page/card_container.js";
+
+let cards = new cardContainer(Container);
 
 const card = document.getElementsByClassName(
     "card")[0];

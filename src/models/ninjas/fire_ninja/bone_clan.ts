@@ -1,6 +1,7 @@
 import {Organizations, Rank, Villages} from '../ninja';
 import {fireNinja} from "./fire_ninja";
-import {Action, Opponents} from "../../../assests/dom_elements/arena/opponents"
+import {Opponents} from "../../opponents/opponents"
+import {Action} from "../../opponents/action";
 
 export class boneClanNinja extends fireNinja {
   "_bone count": number;

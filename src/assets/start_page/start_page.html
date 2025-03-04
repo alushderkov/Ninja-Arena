@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="start_page.css">
+    <title>Ninja-Arena</title>
+
+</head>
+<body>
+    <div class="container container_body">
+        <h1>Welcome to the Ninja Arena!</h1>
+        <div class="container container_buttons">
+            <div class="button button_add">Add</div>
+            <div class="button button_search">Search</div>
+            <div class="button button_all">All</div>
+        </div>
+    </div>
+    <div class="burger-menu">
+        <div class="burger-line"></div>
+        <div class="burger-line"></div>
+        <div class="burger-line"></div>
+    </div>
+    <script>
+        function newPage(button, page) {
+          button.addEventListener("click", () => {
+            window.location.href = page;
+          });
+        }
+
+        newPage(document.querySelector('.button_add'), "");
+        newPage(document.querySelector('.button_search'), "../character_page/character.html");
+        newPage(document.querySelector('.button_all'), "../container_page/container_page.html");
+    </script>
+</body>
+</html>

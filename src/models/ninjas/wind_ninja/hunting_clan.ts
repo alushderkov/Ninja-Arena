@@ -1,6 +1,7 @@
 import {Organizations, Rank, Villages} from "../ninja";
 import {windNinja} from "./wind_ninja";
-import {Action, Opponents} from "../../../assests/dom_elements/arena/opponents";
+import {Opponents} from "../../opponents/opponents";
+import {Action} from "../../opponents/action";
 
 export class huntingClanNinja extends windNinja {
   "_dog count": number;
@@ -47,7 +48,7 @@ export class wolfHunters extends huntingClanNinja {
     super(name, health, chakra, rank, organization, village,
       appearance, arena_view, charge, dog_count);
   }
-  smth(arena: Opponents): Opponents {
+  knife(arena: Opponents): Opponents {
     let result: Opponents;
     result = Action(arena);
     return result;
@@ -72,7 +73,7 @@ export class birdwatchers extends huntingClanNinja {
       appearance, arena_view, charge, dog_count);
   }
 
-  smth(arena: Opponents): Opponents {
+  revolver(arena: Opponents): Opponents {
     let result: Opponents;
     result = Action(arena);
     return result;

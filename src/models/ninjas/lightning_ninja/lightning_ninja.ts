@@ -1,6 +1,6 @@
 import {Ninja, Organizations, Rank, Villages} from '../ninja';
 import {lightningBolt, electricalDischarge, thunder} from "./lightning_powers";
-import {Action, Opponents} from "../../../assests/dom_elements/arena/opponents";
+import {Opponents} from "../../opponents/opponents";
 
 export class lightningNinja extends Ninja {
   _charge: number;

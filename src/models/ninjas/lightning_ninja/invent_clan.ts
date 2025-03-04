@@ -1,6 +1,7 @@
 import {Organizations, Rank, Villages} from '../ninja';
 import {lightningNinja} from "./lightning_ninja";
-import {Action, Opponents} from "../../../assests/dom_elements/arena/opponents";
+import {Opponents} from "../../opponents/opponents";
+import {Action} from "../../opponents/action";
 
 export class inventClanNinja extends lightningNinja {
   _iq: number;
@@ -48,7 +49,7 @@ export class engineer extends inventClanNinja {
       village, appearance, arena_view, charge, iq);
   }
 
-  smth(arena: Opponents): Opponents {
+  studyEnemy(arena: Opponents): Opponents {
     let result: Opponents;
     result = Action(arena);
     return result;
@@ -73,7 +74,7 @@ export class chemist extends inventClanNinja {
       village, appearance, arena_view, charge, iq);
   }
 
-  smth(arena: Opponents): Opponents {
+  acidRain(arena: Opponents): Opponents {
     let result: Opponents;
     result = Action(arena);
     return result;

@@ -1,7 +1,7 @@
-import {NinjaType} from "../../../models/ninjas/ninja_type";
+import {Ninja} from "../../../models/ninjas/ninja";
 
 export class Card {
-  _character: NinjaType;
+  _character: Ninja;
   _photo: string;
   _name: string;
   _health: string;
@@ -10,7 +10,7 @@ export class Card {
   _organization: string;
   _village: string;
 
-  constructor(character: NinjaType) {
+  constructor(character: Ninja) {
     this._character = character;
     this._photo = `
       <div class="character-card__photo">

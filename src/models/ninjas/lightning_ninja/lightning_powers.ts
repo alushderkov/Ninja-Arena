@@ -1,4 +1,4 @@
-import {Opponents} from "../../../assests/dom_elements/arena/opponents";
+import {Opponents} from "../../opponents/opponents";
 
 export function lightningBolt(arena: Opponents): Opponents {
   let result: Opponents;

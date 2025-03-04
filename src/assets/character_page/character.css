@@ -3,13 +3,16 @@
 
 body {
     background-color: var(--background-colour);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .search-form {
     display: flex;
     align-items: center;
     color: var(--font-colour);
-    margin: 25px;
+    margin: 50px;
 }
 
 .search-form__label {
@@ -22,4 +25,7 @@ body {
 
 .search-form__button {
     font-size: 2rem;
+}
+
+.card {
 }

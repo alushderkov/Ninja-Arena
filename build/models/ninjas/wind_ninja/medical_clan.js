@@ -1,5 +1,5 @@
 import { windNinja } from "./wind_ninja.js";
-import { Action } from "../../../assests/dom_elements/arena/opponents.js";
+import { Action } from "../../opponents/action.js";
 export class medicalClanNinja extends windNinja {
     constructor(name, health, chakra, rank, organization, village, appearance, arena_view, charge, experience) {
         super(name, health, chakra, rank, organization, village, appearance, arena_view, charge);
@@ -16,7 +16,7 @@ export class militaryDoctor extends medicalClanNinja {
     constructor(name, health, chakra, rank, organization, village, appearance, arena_view, charge, experience) {
         super(name, health, chakra, rank, organization, village, appearance, arena_view, charge, experience);
     }
-    smth(arena) {
+    ligation(arena) {
         let result;
         result = Action(arena);
         return result;
@@ -26,7 +26,7 @@ export class neurosurgeon extends medicalClanNinja {
     constructor(name, health, chakra, rank, organization, village, appearance, arena_view, charge, experience) {
         super(name, health, chakra, rank, organization, village, appearance, arena_view, charge, experience);
     }
-    smth(arena) {
+    surgery(arena) {
         let result;
         result = Action(arena);
         return result;

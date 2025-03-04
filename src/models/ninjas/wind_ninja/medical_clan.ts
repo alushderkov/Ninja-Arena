@@ -1,6 +1,7 @@
 import {Organizations, Rank, Villages} from "../ninja";
 import {windNinja} from "./wind_ninja";
-import {Action, Opponents} from "../../../assests/dom_elements/arena/opponents";
+import {Opponents} from "../../opponents/opponents";
+import {Action} from "../../opponents/action";
 
 export class medicalClanNinja extends windNinja {
   _experience: number;
@@ -49,7 +50,7 @@ export class militaryDoctor extends medicalClanNinja {
       village, appearance, arena_view, charge, experience);
   }
 
-  smth(arena: Opponents): Opponents {
+  ligation(arena: Opponents): Opponents {
     let result: Opponents;
     result = Action(arena);
     return result;
@@ -74,7 +75,7 @@ export class neurosurgeon extends medicalClanNinja {
       village, appearance, arena_view, charge, experience);
   }
 
-  smth(arena: Opponents): Opponents {
+  surgery(arena: Opponents): Opponents {
     let result: Opponents;
     result = Action(arena);
     return result;

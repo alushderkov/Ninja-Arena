@@ -1,0 +1,80 @@
+@import url("../variables.css");
+
+html {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--background-colour);
+    min-height: 100vh;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    position: relative;
+}
+
+h1 {
+    color: var(--font-colour);
+    font-size: 4rem;
+    margin: 0;
+}
+
+.container {
+    display: flex;
+    gap: 15px;
+}
+
+.container_body {
+    margin-top: 140px;
+    flex-direction: column;
+    align-items: center;
+    gap: 180px
+}
+
+.container_buttons {
+
+}
+
+.burger-menu {
+    position: absolute;
+    width: 50px;
+    height: 35px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    cursor: pointer;
+    top: 25px;
+    left: 20px;
+}
+
+.burger-line {
+    width: 100%;
+    height: 6px;
+    background-color: var(--button-colour);
+    transition: all 0.3s ease;
+    border-radius: 10px;
+}
+
+.burger-menu:hover .burger-line {
+    background-color: var(--font-colour);
+}
+
+.button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    content: "";
+    border: 6px solid var(--button-colour);
+    border-radius: 30px;
+    color: var(--button-colour);
+    min-width: 180px;
+    min-height: 150px;
+    font-size: 2.5rem;
+    font-weight: bolder;
+}
+
+.button:hover {
+    border: 6px solid var(--font-colour);
+    color: var(--font-colour);
+}
+

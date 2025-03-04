@@ -1,10 +1,10 @@
 import {Card} from "../dom_elements/card/card";
-import {NinjaType} from "../../models/ninjas/ninja_type";
+import {Ninja} from "../../models/ninjas/ninja";
 
 export class cardContainer {
-  "_all characters": Array<NinjaType>;
+  "_all characters": Array<Ninja>;
 
-  constructor(all_characters: Array<NinjaType>) {
+  constructor(all_characters: Array<Ninja>) {
     this["_all characters"] = all_characters;
   }
 

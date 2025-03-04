@@ -1,6 +1,7 @@
 import {Organizations, Rank, Villages} from '../ninja';
 import {lightningNinja} from "./lightning_ninja";
-import {Action, Opponents} from "../../../assests/dom_elements/arena/opponents";
+import {Opponents} from "../../opponents/opponents";
+import {Action} from "../../opponents/action";
 
 export class insectClanNinja extends lightningNinja {
   "_bug count": number;
@@ -49,7 +50,7 @@ export class beeKeeper extends insectClanNinja {
       appearance, arena_view, charge, bug_count);
   }
 
-  smth(arena: Opponents): Opponents {
+  beeCloud(arena: Opponents): Opponents {
     let result: Opponents;
     result = Action(arena);
     return result;
@@ -74,7 +75,7 @@ export class antKing extends insectClanNinja {
       appearance, arena_view, charge, bug_count);
   }
 
-  smth(arena: Opponents): Opponents {
+  anthillRescue(arena: Opponents): Opponents {
     let result: Opponents;
     result = Action(arena);
     return result;

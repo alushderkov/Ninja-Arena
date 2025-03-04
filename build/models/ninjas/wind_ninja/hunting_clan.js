@@ -1,5 +1,5 @@
 import { windNinja } from "./wind_ninja.js";
-import { Action } from "../../../assests/dom_elements/arena/opponents.js";
+import { Action } from "../../opponents/action.js";
 export class huntingClanNinja extends windNinja {
     constructor(name, health, chakra, rank, organization, village, appearance, arena_view, charge, dog_count) {
         super(name, health, chakra, rank, organization, village, appearance, arena_view, charge);
@@ -16,7 +16,7 @@ export class wolfHunters extends huntingClanNinja {
     constructor(name, health, chakra, rank, organization, village, appearance, arena_view, charge, dog_count) {
         super(name, health, chakra, rank, organization, village, appearance, arena_view, charge, dog_count);
     }
-    smth(arena) {
+    knife(arena) {
         let result;
         result = Action(arena);
         return result;
@@ -26,7 +26,7 @@ export class birdwatchers extends huntingClanNinja {
     constructor(name, health, chakra, rank, organization, village, appearance, arena_view, charge, dog_count) {
         super(name, health, chakra, rank, organization, village, appearance, arena_view, charge, dog_count);
     }
-    smth(arena) {
+    revolver(arena) {
         let result;
         result = Action(arena);
         return result;

@@ -1,5 +1,5 @@
 import { lightningNinja } from "./lightning_ninja.js";
-import { Action } from "../../../assests/dom_elements/arena/opponents.js";
+import { Action } from "../../opponents/action.js";
 export class insectClanNinja extends lightningNinja {
     constructor(name, health, chakra, rank, organization, village, appearance, arena_view, charge, bug_count) {
         super(name, health, chakra, rank, organization, village, appearance, arena_view, charge);
@@ -16,7 +16,7 @@ export class beeKeeper extends insectClanNinja {
     constructor(name, health, chakra, rank, organization, village, appearance, arena_view, charge, bug_count) {
         super(name, health, chakra, rank, organization, village, appearance, arena_view, charge, bug_count);
     }
-    smth(arena) {
+    beeCloud(arena) {
         let result;
         result = Action(arena);
         return result;
@@ -26,7 +26,7 @@ export class antKing extends insectClanNinja {
     constructor(name, health, chakra, rank, organization, village, appearance, arena_view, charge, bug_count) {
         super(name, health, chakra, rank, organization, village, appearance, arena_view, charge, bug_count);
     }
-    smth(arena) {
+    anthillRescue(arena) {
         let result;
         result = Action(arena);
         return result;
