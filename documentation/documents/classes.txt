@@ -1,0 +1,365 @@
+export const baseImagesPath = `../../../../src/components/characters`;
+export var Rank;
+(function (Rank) {
+    Rank[Rank["A"] = 1] = "A";
+    Rank[Rank["B"] = 2] = "B";
+    Rank[Rank["C"] = 3] = "C";
+    Rank[Rank["S"] = 4] = "S";
+    Rank[Rank["K"] = 5] = "K";
+})(Rank || (Rank = {}));
+export class Ninja {
+    constructor(name, health, chakra, rank, organization, village, appearance, arena_view) {
+        this._name = name;
+        this._health = health;
+        this._chakra = chakra;
+        this["_ninja rank"] = rank;
+        this._organization = organization;
+        this._village = village;
+        this._appearance = appearance;
+        this["_arena view"] = arena_view;
+    }
+    get name() { return this._name; }
+    get health() { return this._health; }
+    get chakra() { return this._chakra; }
+    get rank() { return this["_ninja rank"]; }
+    get organization() { return this._organization; }
+    get village() { return this._village; }
+    get appearance() { return this._appearance; }
+    get arenaView() { return this["_arena view"]; }
+    study(requirement) {
+    }
+    ;
+    train(score) {
+    }
+    ;
+}
+
+export class fireNinja extends Ninja {
+    constructor(name, health, chakra, rank, organization, village, appearance, arena_view, flame_power) {
+        super(name, health, chakra, rank, organization, village, appearance, arena_view);
+        this["_flame power"] = flame_power;
+    }
+    get flamePower() { return this["_flame power"]; }
+    attack(arena) {
+        return fireBall(arena);
+    }
+    regenerate(arena) {
+        return heartOfHell(arena);
+    }
+    superpower(arena) {
+        return fireDestruction(arena);
+    }
+}
+
+export class lightningNinja extends Ninja {
+    constructor(name, health, chakra, rank, organization, village, appearance, arena_view, charge) {
+        super(name, health, chakra, rank, organization, village, appearance, arena_view);
+        this._charge = charge;
+    }
+    get charge() { return this._charge; }
+    attack(arena) {
+        return lightningBolt(arena);
+    }
+    regenerate(arena) {
+        return electricalDischarge(arena);
+    }
+    superpower(arena) {
+        return thunder(arena);
+    }
+}
+
+export class waterNinja extends Ninja {
+    constructor(name, health, chakra, rank, organization, village, appearance, arena_view, water_volume) {
+        super(name, health, chakra, rank, organization, village, appearance, arena_view);
+        this["_water volume"] = water_volume;
+    }
+    get waterVolume() { return this["_water volume"]; }
+    attack(arena) {
+        return waterDragon(arena);
+    }
+    regenerate(arena) {
+        return holySpring(arena);
+    }
+    superpower(arena) {
+        return greatWaterfall(arena);
+    }
+}
+
+export class windNinja extends Ninja {
+    constructor(name, health, chakra, rank, organization, village, appearance, arena_view, wind_speed) {
+        super(name, health, chakra, rank, organization, village, appearance, arena_view);
+        this["_wind speed"] = wind_speed;
+    }
+    get windSpeed() { return this["_wind speed"]; }
+    attack(arena) {
+        return windBlade(arena);
+    }
+    regenerate(arena) {
+        return airEssence(arena);
+    }
+    superpower(arena) {
+        return tornado(arena);
+    }
+}
+
+export class eyesClanNinja extends fireNinja {
+    constructor(name, health, chakra, rank, organization, village, appearance, arena_view, flame_power, eye_level) {
+        super(name, health, chakra, rank, organization, village, appearance, arena_view, flame_power);
+        this._eye_level = eye_level;
+    }
+    get eyeLevel() { return this._eye_level; }
+    repeatEnemyAttack(arena) {
+        let result;
+        result = Action(arena);
+        return result;
+    }
+}
+export class devilEyeNinja extends eyesClanNinja {
+    constructor(name, health, chakra, rank, organization, village, appearance, arena_view, flame_power, eye_level) {
+        super(name, health, chakra, rank, organization, village, appearance, arena_view, flame_power, eye_level);
+    }
+    sacrifice(arena) {
+        let result;
+        result = Action(arena);
+        return result;
+    }
+}
+export class sensorNinja extends eyesClanNinja {
+    constructor(name, health, chakra, rank, organization, village, appearance, arena_view, flame_power, eye_level) {
+        super(name, health, chakra, rank, organization, village, appearance, arena_view, flame_power, eye_level);
+    }
+    evadeAttack(arena) {
+        let result;
+        result = Action(arena);
+        return result;
+    }
+}
+
+export class boneClanNinja extends fireNinja {
+    constructor(name, health, chakra, rank, organization, village, appearance, arena_view, flame_power, bone_count, cursed_mark) {
+        super(name, health, chakra, rank, organization, village, appearance, arena_view, flame_power);
+        this["_bone count"] = bone_count;
+        this["_cursed mark"] = cursed_mark;
+    }
+    get boneCount() { return this["_bone count"]; }
+    isCursed() { return this["_cursed mark"]; }
+    swordSpine(arena) {
+        let result;
+        result = Action(arena);
+        return result;
+    }
+}
+export class bonesInfinity extends boneClanNinja {
+    constructor(name, health, chakra, rank, organization, village, appearance, arena_view, flame_power, bone_count, cursed_mark) {
+        super(name, health, chakra, rank, organization, village, appearance, arena_view, flame_power, bone_count, cursed_mark);
+    }
+    getFullHP(arena) {
+        let result;
+        result = Action(arena);
+        return result;
+    }
+}
+export class denseBone extends boneClanNinja {
+    constructor(name, health, chakra, rank, organization, village, appearance, arena_view, flame_power, bone_count, cursed_mark) {
+        super(name, health, chakra, rank, organization, village, appearance, arena_view, flame_power, bone_count, cursed_mark);
+    }
+    reduceDamage(arena) {
+        let result;
+        result = Action(arena);
+        return result;
+    }
+}
+
+export class insectClanNinja extends lightningNinja {
+    constructor(name, health, chakra, rank, organization, village, appearance, arena_view, charge, bug_count) {
+        super(name, health, chakra, rank, organization, village, appearance, arena_view, charge);
+        this["_bug count"] = bug_count;
+    }
+    get bugCount() { return this["_bug count"]; }
+    bugStorm(arena) {
+        let result;
+        result = Action(arena);
+        return result;
+    }
+}
+export class beeKeeper extends insectClanNinja {
+    constructor(name, health, chakra, rank, organization, village, appearance, arena_view, charge, bug_count) {
+        super(name, health, chakra, rank, organization, village, appearance, arena_view, charge, bug_count);
+    }
+    beeCloud(arena) {
+        let result;
+        result = Action(arena);
+        return result;
+    }
+}
+export class antKing extends insectClanNinja {
+    constructor(name, health, chakra, rank, organization, village, appearance, arena_view, charge, bug_count) {
+        super(name, health, chakra, rank, organization, village, appearance, arena_view, charge, bug_count);
+    }
+    anthillRescue(arena) {
+        let result;
+        result = Action(arena);
+        return result;
+    }
+}
+
+export class inventClanNinja extends lightningNinja {
+    constructor(name, health, chakra, rank, organization, village, appearance, arena_view, charge, iq) {
+        super(name, health, chakra, rank, organization, village, appearance, arena_view, charge);
+        this._iq = iq;
+    }
+    get iq() { return this._iq; }
+    developHP(arena) {
+        let result;
+        result = Action(arena);
+        return result;
+    }
+}
+export class engineer extends inventClanNinja {
+    constructor(name, health, chakra, rank, organization, village, appearance, arena_view, charge, iq) {
+        super(name, health, chakra, rank, organization, village, appearance, arena_view, charge, iq);
+    }
+    studyEnemy(arena) {
+        let result;
+        result = Action(arena);
+        return result;
+    }
+}
+export class chemist extends inventClanNinja {
+    constructor(name, health, chakra, rank, organization, village, appearance, arena_view, charge, iq) {
+        super(name, health, chakra, rank, organization, village, appearance, arena_view, charge, iq);
+    }
+    acidRain(arena) {
+        let result;
+        result = Action(arena);
+        return result;
+    }
+}
+export class illusionClanNinja extends waterNinja {
+    constructor(name, health, chakra, rank, organization, village, appearance, arena_view, water_volume, eye_level) {
+        super(name, health, chakra, rank, organization, village, appearance, arena_view, water_volume);
+        this._eye_level = eye_level;
+    }
+    get eyeLevel() { return this._eye_level; }
+    repairDamage(arena) {
+        let result;
+        result = Action(arena);
+        return result;
+    }
+}
+export class clairvoyant extends illusionClanNinja {
+    constructor(name, health, chakra, rank, organization, village, appearance, arena_view, water_volume, eye_level) {
+        super(name, health, chakra, rank, organization, village, appearance, arena_view, water_volume, eye_level);
+    }
+    evadeAttack(arena) {
+        let result;
+        result = Action(arena);
+        return result;
+    }
+}
+export class absorber extends illusionClanNinja {
+    constructor(name, health, chakra, rank, organization, village, appearance, arena_view, water_volume, eye_level) {
+        super(name, health, chakra, rank, organization, village, appearance, arena_view, water_volume, eye_level);
+    }
+    takeChakra(arena) {
+        let result;
+        result = Action(arena);
+        return result;
+    }
+}
+export class shadowClanNinja extends waterNinja {
+    constructor(name, health, chakra, rank, organization, village, appearance, arena_view, water_volume, shadow_size) {
+        super(name, health, chakra, rank, organization, village, appearance, arena_view, water_volume);
+        this._shadow_size = shadow_size;
+    }
+    get shadowSize() { return this._shadow_size; }
+    stopEnemy(arena) {
+        let result;
+        result = Action(arena);
+        return result;
+    }
+}
+export class shadowMaster extends shadowClanNinja {
+    constructor(name, health, chakra, rank, organization, village, appearance, arena_view, water_volume, shadow_size) {
+        super(name, health, chakra, rank, organization, village, appearance, arena_view, water_volume, shadow_size);
+    }
+    getFullChakra(arena) {
+        let result;
+        result = Action(arena);
+        return result;
+    }
+}
+export class shadowGhost extends shadowClanNinja {
+    constructor(name, health, chakra, rank, organization, village, appearance, arena_view, water_volume, shadow_size) {
+        super(name, health, chakra, rank, organization, village, appearance, arena_view, water_volume, shadow_size);
+    }
+    saveChakraAfterAttack(arena) {
+        let result;
+        result = Action(arena);
+        return result;
+    }
+}
+export class huntingClanNinja extends windNinja {
+    constructor(name, health, chakra, rank, organization, village, appearance, arena_view, charge, dog_count) {
+        super(name, health, chakra, rank, organization, village, appearance, arena_view, charge);
+        this["_dog count"] = dog_count;
+    }
+    get dogCount() { return this["_dog count"]; }
+    hunt(arena) {
+        let result;
+        result = Action(arena);
+        return result;
+    }
+}
+export class wolfHunters extends huntingClanNinja {
+    constructor(name, health, chakra, rank, organization, village, appearance, arena_view, charge, dog_count) {
+        super(name, health, chakra, rank, organization, village, appearance, arena_view, charge, dog_count);
+    }
+    knife(arena) {
+        let result;
+        result = Action(arena);
+        return result;
+    }
+}
+export class birdwatchers extends huntingClanNinja {
+    constructor(name, health, chakra, rank, organization, village, appearance, arena_view, charge, dog_count) {
+        super(name, health, chakra, rank, organization, village, appearance, arena_view, charge, dog_count);
+    }
+    revolver(arena) {
+        let result;
+        result = Action(arena);
+        return result;
+    }
+}
+export class medicalClanNinja extends windNinja {
+    constructor(name, health, chakra, rank, organization, village, appearance, arena_view, charge, experience) {
+        super(name, health, chakra, rank, organization, village, appearance, arena_view, charge);
+        this._experience = experience;
+    }
+    get experience() { return this._experience; }
+    superRegeneration(arena) {
+        let result;
+        result = Action(arena);
+        return result;
+    }
+}
+export class militaryDoctor extends medicalClanNinja {
+    constructor(name, health, chakra, rank, organization, village, appearance, arena_view, charge, experience) {
+        super(name, health, chakra, rank, organization, village, appearance, arena_view, charge, experience);
+    }
+    ligation(arena) {
+        let result;
+        result = Action(arena);
+        return result;
+    }
+}
+export class neurosurgeon extends medicalClanNinja {
+    constructor(name, health, chakra, rank, organization, village, appearance, arena_view, charge, experience) {
+        super(name, health, chakra, rank, organization, village, appearance, arena_view, charge, experience);
+    }
+    surgery(arena) {
+        let result;
+        result = Action(arena);
+        return result;
+    }
+}

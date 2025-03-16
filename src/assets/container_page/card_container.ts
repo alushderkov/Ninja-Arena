@@ -1,11 +1,15 @@
 import {Card} from "../dom_elements/card/card";
 import {Ninja} from "../../models/ninjas/ninja";
 
-export class cardContainer {
+export class CardContainer {
   "_all characters": Array<Ninja>;
 
   constructor(all_characters: Array<Ninja>) {
     this["_all characters"] = all_characters;
+  }
+
+  get all_characters(): Array<Ninja> {
+    return this["_all characters"];
   }
 
   createHTMLCode(): string {

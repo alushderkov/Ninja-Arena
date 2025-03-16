@@ -1,8 +1,11 @@
-import {Container} from "../../../build/components/container.js";
-import {cardContainer} from "../../../build/assets/container_page/card_container.js";
+async function initializeContainer(container) {
+  let {cards} = await import('../general_data.js');
+  container.innerHTML = cards.createHTMLCode();
+}
 
-let cards = new cardContainer(Container);
-let cardsHTML = cards.createHTMLCode();
+let container =
+  document.getElementsByClassName("container")[0];
 
-const container = document.getElementsByClassName("container")[0];
-container.innerHTML = cardsHTML;
+window.onload = async () => {
+  await initializeContainer(container);
+};

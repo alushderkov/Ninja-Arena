@@ -1,19 +1,21 @@
-import {Container} from "../../../build/components/container.js";
-import {cardContainer} from "../../../build/assets/container_page/card_container.js";
+async function initializeContainer(button) {
+  let {cards} = await import('../general_data.js');
 
-let cards = new cardContainer(Container);
+  button.addEventListener("click", () => {
+      card.innerHTML = cards.searchHTMLCard(input.value);
+    }
+  )
+}
 
 const card = document.getElementsByClassName(
-    "card")[0];
+  "card")[0];
 
 const button = document.getElementsByClassName(
-    "search-form__button")[0];
+  "search-form__button")[0];
 
 const input = document.getElementsByClassName(
-    "search-form__input")[0];
+  "search-form__input")[0];
 
-button.addEventListener("click", () => {
-        card.innerHTML = cards.searchHTMLCard(input.value);
-    }
-)
-
+window.addEventListener('load', async () => {
+  await initializeContainer(button);
+});

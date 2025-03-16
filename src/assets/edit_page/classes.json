@@ -1,0 +1,143 @@
+{
+  "classes": {
+    "Ninja": {
+      "fields": [
+        { "name": "name", "type": "text", "placeholder": "Name" },
+        { "name": "health", "type": "number", "placeholder": "Health" },
+        { "name": "chakra", "type": "number", "placeholder": "Chakra" },
+        { "name": "rank", "type": "select", "options": ["A", "B", "C", "S", "K"], "placeholder": "Rank" },
+        { "name": "organization", "type": "text", "placeholder": "Organization" },
+        { "name": "village", "type": "text", "placeholder": "Village" },
+        { "name": "appearance", "type": "text", "placeholder": "Appearance" },
+        { "name": "arena_view", "type": "text", "placeholder": "Arena View" }
+      ],
+      "children": ["fireNinja", "lightningNinja", "waterNinja", "windNinja"]
+    },
+    "fireNinja": {
+      "fields": [
+        { "name": "flame_power", "type": "number", "placeholder": "Flame Power" }
+      ],
+      "children": ["eyesClanNinja", "boneClanNinja"]
+    },
+    "eyesClanNinja": {
+      "fields": [
+        { "name": "eye_level", "type": "number", "placeholder": "Eye Level" }
+      ],
+      "children": ["devilEyeNinja", "sensorNinja"]
+    },
+    "devilEyeNinja": {
+      "fields": []
+    },
+    "sensorNinja": {
+      "fields": []
+    },
+    "boneClanNinja": {
+      "fields": [
+        { "name": "bone_count", "type": "number", "placeholder": "Bone Count" },
+        {
+          "name": "cursed_mark",
+          "type": "select",
+          "options": ["No", "Yes"],
+          "placeholder": "Cursed Mark"
+        }
+      ],
+      "children": ["bonesInfinity", "denseBone"]
+    },
+    "bonesInfinity": {
+      "fields": []
+    },
+    "denseBone": {
+      "fields": []
+    },
+    "lightningNinja": {
+      "fields": [
+        { "name": "charge", "type": "number", "placeholder": "Charge" }
+      ],
+      "children": ["insectClanNinja", "inventClanNinja"]
+    },
+    "insectClanNinja": {
+      "fields": [
+        { "name": "bug_count", "type": "number", "placeholder": "Bug Count" }
+      ],
+      "children": ["beeKeeper", "antKing"]
+    },
+    "beeKeeper": {
+      "fields": []
+    },
+    "antKing": {
+      "fields": []
+    },
+    "inventClanNinja": {
+      "fields": [
+        { "name": "iq", "type": "number", "placeholder": "IQ" }
+      ],
+      "children": ["engineer", "chemist"]
+    },
+    "engineer": {
+      "fields": []
+    },
+    "chemist": {
+      "fields": []
+    },
+    "waterNinja": {
+      "fields": [
+        { "name": "water_volume", "type": "number", "placeholder": "Water Volume" }
+      ],
+      "children": ["illusionClanNinja", "shadowClanNinja"]
+    },
+    "illusionClanNinja": {
+      "fields": [
+        { "name": "eye_level", "type": "number", "placeholder": "Eye Level" }
+      ],
+      "children": ["clairvoyant", "absorber"]
+    },
+    "clairvoyant": {
+      "fields": []
+    },
+    "absorber": {
+      "fields": []
+    },
+    "shadowClanNinja": {
+      "fields": [
+        { "name": "shadow_size", "type": "number", "placeholder": "Shadow Size" }
+      ],
+      "children": ["shadowMaster", "shadowGhost"]
+    },
+    "shadowMaster": {
+      "fields": []
+    },
+    "shadowGhost": {
+      "fields": []
+    },
+    "windNinja": {
+      "fields": [
+        { "name": "wind_speed", "type": "number", "placeholder": "Wind Speed" }
+      ],
+      "children": ["huntingClanNinja", "medicalClanNinja"]
+    },
+    "huntingClanNinja": {
+      "fields": [
+        { "name": "dog_count", "type": "number", "placeholder": "Dog Count" }
+      ],
+      "children": ["wolfHunters", "birdwatchers"]
+    },
+    "wolfHunters": {
+      "fields": []
+    },
+    "birdwatchers": {
+      "fields": []
+    },
+    "medicalClanNinja": {
+      "fields": [
+        { "name": "experience", "type": "number", "placeholder": "Experience" }
+      ],
+      "children": ["militaryDoctor", "neurosurgeon"]
+    },
+    "militaryDoctor": {
+      "fields": []
+    },
+    "neurosurgeon": {
+      "fields": []
+    }
+  }
+}
