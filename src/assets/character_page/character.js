@@ -1,5 +1,5 @@
 async function initializeContainer(button) {
-  let {cards} = await import('../general_data.js');
+  let {cards} = await import('../edit_page/export_container.js');
 
   button.addEventListener("click", () => {
       card.innerHTML = cards.searchHTMLCard(input.value);

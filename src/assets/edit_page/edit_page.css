@@ -1,29 +1,46 @@
 @import url("../variables.css");
 
+:root {
+    --container-colour: #e4e4f8;
+}
+
 body {
     font-family: Arial, sans-serif;
-    margin: 20px;
     padding: 0;
+    margin: 20px auto;
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: #f4f4f4;
+    background-color: var(--background-colour);
     min-height: 100vh;
+    overflow-y: hidden;
 }
 
-h1 {
-    margin-bottom: 18px;
-    font-size: 29px;
+.h1 {
+    font-family: "Times New Roman", sans-serif;
+    color: var(--font-colour);
+    font-size: 3rem;
+    font-weight: bold;
+    margin-top: 15px;
+    margin-bottom: 15px;
 }
 
 .container {
-    background-color: #fff;
+    background-color: var(--container-colour);
     padding: 18px;
     border-radius: 8px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     width: 100%;
     max-width: 720px;
     margin: 24px;
+}
+
+.body-container {
+    display: flex;
+}
+
+.container_left {
+    width: 600px;
 }
 
 .form-grid {
@@ -37,13 +54,13 @@ label {
     margin-top: 10px;
     font-weight: bold;
     font-size: 16px;
+    margin-bottom: 2px;
 }
 
 select, input, button {
     width: 100%;
     padding: 7px;
-    margin-top: 5px;
-    margin-bottom: 10px;
+    margin-bottom: 5px;
     border: 1px solid #ccc;
     border-radius: 4px;
     box-sizing: border-box;
@@ -51,22 +68,20 @@ select, input, button {
 }
 
 button {
-    background-color: #4CAF50;
+    background-color: #7878b1;
     color: white;
     border: none;
     cursor: pointer;
     font-size: 16px;
     padding: 10px;
     grid-column: span 2;
+    margin-top: 7px;
 }
 
 button:hover {
-    background-color: #45a049;
+    background-color: var(--button-colour);
 }
 
-#formContainer {
-    margin-top: 12px;
-}
 
 
 

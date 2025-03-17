@@ -1,5 +1,5 @@
 async function initializeContainer(container) {
-  let {cards} = await import('../general_data.js');
+  let {cards} = await import('../edit_page/export_container.js');
   container.innerHTML = cards.createHTMLCode();
 }
 

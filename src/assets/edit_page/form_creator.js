@@ -1,0 +1,165 @@
+let classData = {};
+export function processNinjasData() {
+
+  function processJSONData(JSONData) {
+    classData = JSONData.classes;
+    addClasses('Ninja', document.getElementById('classSelector'));
+    updateForm('Ninja');
+  }
+
+  function fetchData(pathToJSON) {
+    fetch(pathToJSON)
+      .then( response => response.json() )
+      .then( data => processJSONData(data) )
+      .catch( error => console.error('Ошибка загрузки JSON:', error) );
+  }
+
+  fetchData(`classes.json`);
+}
+function addClasses(className, selector, level = 0) {
+
+  function fillClassAsOption() {
+    const option = document.createElement('option');
+
+    option.value = className;
+    option.innerHTML = '&nbsp;&nbsp;&nbsp;'.repeat(level * 2) + className;
+    selector.appendChild(option);
+  }
+
+  function addChildClasses() {
+
+    if (classInfo.children) {
+      classInfo.children.forEach(child => {
+        addClasses(child, selector, level + 1);
+      });
+    }
+  }
+
+  const classInfo = classData[className];
+
+  if (classInfo) {
+    fillClassAsOption();
+    addChildClasses();
+
+  } else {
+    console.log('Ошибка при получении данных о классе');
+  }
+}
+
+export function updateClassSelector() {
+  const selector = document.getElementById('classSelector');
+
+  selector.innerHTML = '';
+  addClasses('Ninja', selector);
+}
+
+export function updateForm(className) {
+
+  function addFieldsForChosenClass(form) {
+    let currentClass = className;
+
+    while (currentClass) {
+      const classInfo = classData[currentClass];
+
+      if (classInfo && classInfo.fields) {
+        classInfo.fields.forEach(field => {
+          const input = createField(field);
+          form.appendChild(input);
+        });
+      }
+
+      currentClass = Object.keys(classData).find(key =>
+        classData[key].children && classData[key].children.includes(currentClass));
+    }
+  }
+
+  function createNinja(event, form) {
+    event.preventDefault();
+    const formData = new FormData(form);
+    const ninjaData = {};
+    formData.forEach(
+      (value, key) => {
+        ninjaData[key] = value;
+      });
+    console.log('Создан объект:', ninjaData);
+  }
+
+  function createSubmitButton(submitButton) {
+    submitButton.type = 'submit';
+    submitButton.textContent = 'Add Changes';
+  }
+
+  function createForm(form) {
+    const submitButton = document.createElement('button');
+    createSubmitButton(submitButton);
+    form.appendChild(submitButton);
+
+    form.addEventListener('submit', function (event) {
+      createNinja(event, form);
+    });
+  }
+
+  function createFormContainer(formContainer) {
+    formContainer.innerHTML = '';
+
+    const form = document.createElement('form');
+    form.classList.add('form-grid');
+
+    addFieldsForChosenClass(form);
+    createForm(form);
+    formContainer.appendChild(form);
+  }
+
+  const formContainer =
+    document.getElementById('formContainer');
+  createFormContainer(formContainer)
+}
+
+function createField(field) {
+
+  function createLabel(subField) {
+    const label = document.createElement('label');
+    label.textContent = field.placeholder;
+    subField.appendChild(label);
+  }
+
+  function createInput(subField) {
+    const input = document.createElement('input');
+    input.type = field.type;
+    input.name = field.name;
+    input.placeholder = field.placeholder;
+    subField.appendChild(input);
+  }
+
+  function createOption(select, option) {
+    const optionElement =
+      document.createElement('option');
+
+    optionElement.value = option;
+    optionElement.textContent = option;
+    select.appendChild(optionElement);
+  }
+
+  function createSelect(subField) {
+    const select = document.createElement('select');
+    select.name = field.name;
+
+    field.options.forEach(option => {
+      createOption(select, option);
+    });
+
+    subField.appendChild(select);
+  }
+
+  const result = document.createElement('div');
+
+  if (field.type === 'select') {
+    createLabel(result);
+    createSelect(result);
+  } else {
+    createLabel(result);
+    createInput(result);
+  }
+
+  return result;
+}
