@@ -3,8 +3,8 @@ export function processNinjasData() {
 
   function processJSONData(JSONData) {
     classData = JSONData.classes;
-    addClasses('Ninja', document.getElementById('classSelector'));
-    updateForm('Ninja');
+    addClasses('AbstractNinja', document.getElementById('classSelector'));
+    updateForm('AbstractNinja');
   }
 
   function fetchData(pathToJSON) {
@@ -50,7 +50,7 @@ export function updateClassSelector() {
   const selector = document.getElementById('classSelector');
 
   selector.innerHTML = '';
-  addClasses('Ninja', selector);
+  addClasses('AbstractNinja', selector);
 }
 
 export function updateForm(className) {

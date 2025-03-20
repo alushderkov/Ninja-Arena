@@ -1,6 +1,6 @@
 {
   "classes": {
-    "Ninja": {
+    "AbstractNinja": {
       "fields": [
         { "name": "name", "type": "text", "placeholder": "Name" },
         { "name": "health", "type": "number", "placeholder": "Health" },
