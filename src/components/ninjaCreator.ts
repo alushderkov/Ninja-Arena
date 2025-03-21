@@ -1,6 +1,13 @@
 import {NinjaFactoryCreator} from "../models/factories/general/ninjaFactoryCreator";
+import {Ninja} from "../models/ninjas/ninja";
+import {AbstractNinjaFactory} from "../models/factories/general/abstractNinjaFactory";
 
-export function createNinja(event: Event, form: HTMLFormElement /*, [Container]*/): void {
+export function createNinja(
+  event: Event,
+  form: HTMLFormElement,
+  Container: Array<Ninja>,
+  className: string
+): void {
   event.preventDefault();
   const formData = new FormData(form);
   const ninjaData: Record<string, any> = {};
@@ -9,18 +16,22 @@ export function createNinja(event: Event, form: HTMLFormElement /*, [Container]*
     ninjaData[key] = value;
   });
 
-  const className = formData.get('class') as string;
-
   try {
-    const factory = NinjaFactoryCreator.getFactory(className);
-    const ninja = factory.createNinja(ninjaData);
-    // todo: логика добавления ниндзя
-    console.log('Создан объект:', ninja);
-    alert(`Объект ${className} успешно создан!`);
+    const factory: AbstractNinjaFactory = NinjaFactoryCreator.getFactory(className);
+    const ninja: Ninja = factory.createNinja(ninjaData);
+
+    console.log('Object was created:', ninja);
+
+    try {
+      Container.push(ninja);
+      alert(`Object ${className} created successfully!`);
+
+    } catch (error) {
+      console.log("Error adding object to container")
+      alert("An error occurred while adding the object to the container.")
+    }
 
   } catch (error) {
-
-    console.error('Ошибка при создании объекта:', error);
-    alert('Ошибка при создании объекта. Проверьте введенные данные.');
+    console.error('Error while creating object:', error);
   }
 }

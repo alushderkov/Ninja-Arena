@@ -1,3 +1,7 @@
+import {createNinja} from "../../../build/components/ninjaCreator.js";
+
+let currentContainer = [];
+
 let classData = {};
 export function processNinjasData() {
 
@@ -73,17 +77,6 @@ export function updateForm(className) {
     }
   }
 
-  function createNinja(event, form) {
-    event.preventDefault();
-    const formData = new FormData(form);
-    const ninjaData = {};
-    formData.forEach(
-      (value, key) => {
-        ninjaData[key] = value;
-      });
-    console.log('Создан объект:', ninjaData);
-  }
-
   function createSubmitButton(submitButton) {
     submitButton.type = 'submit';
     submitButton.textContent = 'Add Changes';
@@ -93,10 +86,6 @@ export function updateForm(className) {
     const submitButton = document.createElement('button');
     createSubmitButton(submitButton);
     form.appendChild(submitButton);
-
-    form.addEventListener('submit', function (event) {
-      createNinja(event, form);
-    });
   }
 
   function createFormContainer(formContainer) {
@@ -108,6 +97,11 @@ export function updateForm(className) {
     addFieldsForChosenClass(form);
     createForm(form);
     formContainer.appendChild(form);
+
+    form.addEventListener('submit', function (event) {
+      createNinja(event, this, currentContainer, className);
+      console.log(`Current container include: ${currentContainer}`);
+    });
   }
 
   const formContainer =

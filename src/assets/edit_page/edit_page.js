@@ -1,5 +1,4 @@
 import {processNinjasData, updateClassSelector, updateForm} from "./form_creator.js";
-import {createNinja} from "../../../build/components/ninjaCreator.js";
 
 processNinjasData();
 
@@ -30,8 +29,3 @@ window.addEventListener('load', () => {
     }
   }, 100);
 });
-
-document.getElementById('ninjaForm')
-  .addEventListener('submit', function (event) {
-    createNinja(event, this);
-  });
