@@ -1,3 +1,4 @@
+import {Container} from "../../../build/components/container.js";
 import {processNinjasData, updateClassSelector, updateForm} from "./form_creator.js";
 
 processNinjasData();
@@ -8,7 +9,7 @@ document.getElementById('classSelector')
 
     this.options[this.selectedIndex].textContent =
       selectedOption.textContent.trim();
-      updateForm(this.value);
+      updateForm(this.value, Container);
 });
 
 document.getElementById('classSelector')

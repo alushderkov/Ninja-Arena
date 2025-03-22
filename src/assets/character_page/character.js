@@ -1,5 +1,18 @@
 async function initializeContainer(button) {
-  let {cards} = await import('../edit_page/export_container.js');
+  let {createDynamicNinja} = await import('../../../build/models/factories/ninjaFactory.js');
+  let {Container} = await import('../../../build/components/container.js');
+  let {CardContainer} = await import('../../../build/assets/container_page/card_container.js');
+  const savedContainerData = JSON.parse(localStorage.getItem('Container'));
+  let containerInstance;
+
+  if (savedContainerData) {
+    containerInstance = savedContainerData.map(({ type, data }) => createDynamicNinja(type, data));
+  } else {
+    containerInstance = Container;
+  }
+
+
+  let cards = new CardContainer(containerInstance);
 
   button.addEventListener("click", () => {
       card.innerHTML = cards.searchHTMLCard(input.value);

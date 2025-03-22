@@ -1,11 +1,10 @@
-import {NinjaFactoryCreator} from "../models/factories/general/ninjaFactoryCreator";
+import {createDynamicNinja} from "../models/factories/ninjaFactory";
 import {Ninja} from "../models/ninjas/ninja";
-import {AbstractNinjaFactory} from "../models/factories/general/abstractNinjaFactory";
 
 export function createNinja(
   event: Event,
   form: HTMLFormElement,
-  Container: Array<Ninja>,
+  container: Array<Ninja>,
   className: string
 ): void {
   event.preventDefault();
@@ -17,21 +16,17 @@ export function createNinja(
   });
 
   try {
-    const factory: AbstractNinjaFactory = NinjaFactoryCreator.getFactory(className);
-    const ninja: Ninja = factory.createNinja(ninjaData);
+    const ninja = createDynamicNinja(className, ninjaData);
 
     console.log('Object was created:', ninja);
+    container.push(ninja);
 
-    try {
-      Container.push(ninja);
-      alert(`Object ${className} created successfully!`);
-
-    } catch (error) {
-      console.log("Error adding object to container")
-      alert("An error occurred while adding the object to the container.")
-    }
+    alert(`Object ${className} created successfully!`);
 
   } catch (error) {
     console.error('Error while creating object:', error);
+
+    alert("Error while creating an object of a nonexistent or abstract class." +
+      "\nCHOOSE EXISTENT NINJA!");
   }
 }
