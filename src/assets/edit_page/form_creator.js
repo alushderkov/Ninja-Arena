@@ -124,7 +124,7 @@ function createField(field) {
     const input = document.createElement('input');
     input.type = field.type;
     input.name = field.name;
-    input.placeholder = field.placeholder;
+    input.placeholder = field.range ? field.range : field.placeholder;
     subField.appendChild(input);
   }
 

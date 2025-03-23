@@ -3,8 +3,8 @@
     "AbstractNinja": {
       "fields": [
         { "name": "name", "type": "text", "placeholder": "Name" },
-        { "name": "health", "type": "number", "placeholder": "Health" },
-        { "name": "chakra", "type": "number", "placeholder": "Chakra" },
+        { "name": "health", "type": "number", "placeholder": "Health", "range": "from 500 to 3000" },
+        { "name": "chakra", "type": "number", "placeholder": "Chakra", "range": "from 300 to 1500" },
         { "name": "rank", "type": "select", "options": ["A", "B", "C", "S", "K"], "placeholder": "Rank" },
         { "name": "organization",
           "type": "select",
@@ -29,13 +29,13 @@
     },
     "fireNinja": {
       "fields": [
-        { "name": "flame_power", "type": "number", "placeholder": "Flame Power" }
+        { "name": "flame_power", "type": "number", "placeholder": "Flame Power", "range": "from 0.1 to 3" }
       ],
       "children": ["eyesClanNinja", "boneClanNinja"]
     },
     "eyesClanNinja": {
       "fields": [
-        { "name": "eye_level", "type": "number", "placeholder": "Eye Level" }
+        { "name": "eye_level", "type": "number", "placeholder": "Eye Level", "range": "from 1 to 5" }
       ],
       "children": ["devilEyeNinja", "sensorNinja"]
     },
@@ -47,7 +47,7 @@
     },
     "boneClanNinja": {
       "fields": [
-        { "name": "bone_count", "type": "number", "placeholder": "Bone Count" },
+        { "name": "bone_count", "type": "number", "placeholder": "Bone Count", "range": "from 100 to 1000" },
         {
           "name": "cursed_mark",
           "type": "select",
@@ -65,13 +65,13 @@
     },
     "lightningNinja": {
       "fields": [
-        { "name": "charge", "type": "number", "placeholder": "Charge" }
+        { "name": "charge", "type": "number", "placeholder": "Charge", "range": "from 0.1 to 3" }
       ],
       "children": ["insectClanNinja", "inventClanNinja"]
     },
     "insectClanNinja": {
       "fields": [
-        { "name": "bug_count", "type": "number", "placeholder": "Bug Count" }
+        { "name": "bug_count", "type": "number", "placeholder": "Bug Count", "range": "from 100 to 100000" }
       ],
       "children": ["beeKeeper", "antKing"]
     },
@@ -83,7 +83,7 @@
     },
     "inventClanNinja": {
       "fields": [
-        { "name": "iq", "type": "number", "placeholder": "IQ" }
+        { "name": "iq", "type": "number", "placeholder": "IQ", "range": "from 50 to 400" }
       ],
       "children": ["engineer", "chemist"]
     },
@@ -95,13 +95,13 @@
     },
     "waterNinja": {
       "fields": [
-        { "name": "water_volume", "type": "number", "placeholder": "Water Volume" }
+        { "name": "water_volume", "type": "number", "placeholder": "Water Volume", "range": "from 0.1 to 3" }
       ],
       "children": ["illusionClanNinja", "shadowClanNinja"]
     },
     "illusionClanNinja": {
       "fields": [
-        { "name": "eye_level", "type": "number", "placeholder": "Eye Level" }
+        { "name": "eye_level", "type": "number", "placeholder": "Eye Level", "range": "from 1 to 5" }
       ],
       "children": ["clairvoyant", "absorber"]
     },
@@ -113,7 +113,7 @@
     },
     "shadowClanNinja": {
       "fields": [
-        { "name": "shadow_size", "type": "number", "placeholder": "Shadow Size" }
+        { "name": "shadow_size", "type": "number", "placeholder": "Shadow Size", "range": "from 0.1 to 3" }
       ],
       "children": ["shadowMaster", "shadowGhost"]
     },
@@ -125,13 +125,13 @@
     },
     "windNinja": {
       "fields": [
-        { "name": "wind_speed", "type": "number", "placeholder": "Wind Speed" }
+        { "name": "wind_speed", "type": "number", "placeholder": "Wind Speed", "range": "from 0.1 to 3" }
       ],
       "children": ["huntingClanNinja", "medicalClanNinja"]
     },
     "huntingClanNinja": {
       "fields": [
-        { "name": "dog_count", "type": "number", "placeholder": "Dog Count" }
+        { "name": "dog_count", "type": "number", "placeholder": "Dog Count", "range": "from 1 to 20" }
       ],
       "children": ["wolfHunters", "birdwatchers"]
     },
@@ -143,7 +143,7 @@
     },
     "medicalClanNinja": {
       "fields": [
-        { "name": "experience", "type": "number", "placeholder": "Experience" }
+        { "name": "experience", "type": "number", "placeholder": "Experience", "range": "from 0.5 to 3" }
       ],
       "children": ["militaryDoctor", "neurosurgeon"]
     },
