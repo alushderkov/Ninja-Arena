@@ -4,12 +4,12 @@ import {processNinjasData, updateClassSelector, updateForm} from "./form_creator
 processNinjasData();
 
 document.getElementById('classSelector')
-  .addEventListener('change', function () {
+  .addEventListener('change', async function () {
     const selectedOption = this.options[this.selectedIndex];
 
     this.options[this.selectedIndex].textContent =
       selectedOption.textContent.trim();
-      updateForm(this.value, Container);
+      await updateForm(this.value, Container);
 });
 
 document.getElementById('classSelector')

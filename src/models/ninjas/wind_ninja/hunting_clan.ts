@@ -5,7 +5,7 @@ import {Action} from "../../opponents/action";
 
 export class huntingClanNinja extends windNinja {
   "_dog count": number;
-  constructor (
+  constructor (data: {
     name: string,
     health: number,
     chakra: number,
@@ -14,12 +14,11 @@ export class huntingClanNinja extends windNinja {
     village: Villages,
     appearance: string,
     arena_view: string,
-    charge: number,
+    wind_speed: number,
     dog_count: number,
-  ) {
-    super(name, health, chakra, rank, organization,
-      village, appearance, arena_view, charge);
-    this["_dog count"] = dog_count;
+  }) {
+    super(data);
+    this["_dog count"] = data.dog_count;
   }
 
   get dogCount(): number { return this["_dog count"]; }
@@ -33,7 +32,7 @@ export class huntingClanNinja extends windNinja {
 
 export class wolfHunters extends huntingClanNinja {
 
-  constructor (
+  constructor (data: {
     name: string,
     health: number,
     chakra: number,
@@ -42,11 +41,10 @@ export class wolfHunters extends huntingClanNinja {
     village: Villages,
     appearance: string,
     arena_view: string,
-    charge: number,
+    wind_speed: number,
     dog_count: number,
-  ) {
-    super(name, health, chakra, rank, organization, village,
-      appearance, arena_view, charge, dog_count);
+  }) {
+    super(data);
   }
   knife(arena: Opponents): Opponents {
     let result: Opponents;
@@ -57,7 +55,7 @@ export class wolfHunters extends huntingClanNinja {
 
 export class birdwatchers extends huntingClanNinja {
 
-  constructor (
+  constructor (data: {
     name: string,
     health: number,
     chakra: number,
@@ -66,11 +64,10 @@ export class birdwatchers extends huntingClanNinja {
     village: Villages,
     appearance: string,
     arena_view: string,
-    charge: number,
+    wind_speed: number,
     dog_count: number,
-  ) {
-    super(name, health, chakra, rank, organization, village,
-      appearance, arena_view, charge, dog_count);
+  }) {
+    super(data);
   }
 
   revolver(arena: Opponents): Opponents {

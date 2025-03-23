@@ -36,7 +36,7 @@ export abstract class Ninja {
   _appearance: string;
   "_arena view": string;
 
-  constructor(
+  protected constructor(data: {
     name: string,
     health: number,
     chakra: number,
@@ -45,15 +45,15 @@ export abstract class Ninja {
     village: Villages,
     appearance: string,
     arena_view: string,
-  ) {
-    this._name = name;
-    this._health = health;
-    this._chakra = chakra;
-    this["_ninja rank"] = rank;
-    this._organization = organization;
-    this._village = village;
-    this._appearance = appearance;
-    this["_arena view"] = arena_view;
+  }) {
+    this._name = data.name;
+    this._health = data.health;
+    this._chakra = data.chakra;
+    this["_ninja rank"] = data.rank;
+    this._organization = data.organization;
+    this._village = data.village;
+    this._appearance = data.appearance;
+    this["_arena view"] = data.arena_view;
   }
 
   get name(): string { return this._name; }

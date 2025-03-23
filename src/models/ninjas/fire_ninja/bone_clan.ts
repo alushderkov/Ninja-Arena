@@ -7,7 +7,7 @@ export class boneClanNinja extends fireNinja {
   "_bone count": number;
   private "_cursed mark": boolean;
 
-  constructor(
+  constructor(data: {
     name: string,
     health: number,
     chakra: number,
@@ -19,11 +19,10 @@ export class boneClanNinja extends fireNinja {
     flame_power: number,
     bone_count: number,
     cursed_mark: boolean,
-  ) {
-    super(name, health, chakra, rank, organization, village,
-      appearance, arena_view, flame_power);
-    this["_bone count"] = bone_count;
-    this["_cursed mark"] = cursed_mark;
+  }) {
+    super(data);
+    this["_bone count"] = data.bone_count;
+    this["_cursed mark"] = data.cursed_mark;
   }
 
   get boneCount(): number { return this["_bone count"]; }
@@ -38,7 +37,7 @@ export class boneClanNinja extends fireNinja {
 
 export class bonesInfinity extends boneClanNinja {
 
-  constructor(
+  constructor(data: {
     name: string,
     health: number,
     chakra: number,
@@ -50,9 +49,8 @@ export class bonesInfinity extends boneClanNinja {
     flame_power: number,
     bone_count: number,
     cursed_mark: boolean,
-  ) {
-    super(name, health, chakra, rank, organization, village,
-      appearance, arena_view, flame_power, bone_count, cursed_mark);
+  }) {
+    super(data);
   }
 
   getFullHP(arena: Opponents): Opponents {
@@ -64,7 +62,7 @@ export class bonesInfinity extends boneClanNinja {
 
 export class denseBone extends boneClanNinja {
 
-  constructor(
+  constructor(data: {
     name: string,
     health: number,
     chakra: number,
@@ -76,9 +74,8 @@ export class denseBone extends boneClanNinja {
     flame_power: number,
     bone_count: number,
     cursed_mark: boolean,
-  ) {
-    super(name, health, chakra, rank, organization, village,
-      appearance, arena_view, flame_power, bone_count, cursed_mark);
+  }) {
+    super(data);
   }
 
   reduceDamage(arena: Opponents): Opponents {

@@ -5,7 +5,7 @@ import {Opponents} from "../../opponents/opponents";
 export class lightningNinja extends Ninja {
   _charge: number;
 
-  constructor (
+  constructor (data: {
     name: string,
     health: number,
     chakra: number,
@@ -15,10 +15,9 @@ export class lightningNinja extends Ninja {
     appearance: string,
     arena_view: string,
     charge: number,
-  ) {
-    super(name, health, chakra, rank, organization,
-      village, appearance, arena_view);
-    this._charge = charge;
+  }) {
+    super(data);
+    this._charge = data.charge;
   }
 
   get charge(): number { return this._charge; }

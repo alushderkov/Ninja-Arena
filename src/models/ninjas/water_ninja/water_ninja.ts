@@ -5,7 +5,7 @@ import {Opponents} from "../../opponents/opponents";
 export class waterNinja extends Ninja {
   "_water volume": number;
 
-  constructor (
+  constructor (data: {
     name: string,
     health: number,
     chakra: number,
@@ -15,10 +15,9 @@ export class waterNinja extends Ninja {
     appearance: string,
     arena_view: string,
     water_volume: number,
-  ) {
-    super(name, health, chakra, rank, organization,
-      village, appearance, arena_view);
-    this["_water volume"] = water_volume;
+  }) {
+    super(data);
+    this["_water volume"] = data.water_volume;
   }
 
   get waterVolume() { return this["_water volume"]; }

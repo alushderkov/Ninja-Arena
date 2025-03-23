@@ -5,7 +5,7 @@ import {Action} from "../../opponents/action";
 
 export class inventClanNinja extends lightningNinja {
   _iq: number;
-  constructor (
+  constructor (data: {
     name: string,
     health: number,
     chakra: number,
@@ -16,10 +16,9 @@ export class inventClanNinja extends lightningNinja {
     arena_view: string,
     charge: number,
     iq: number,
-  ) {
-    super(name, health, chakra, rank, organization,
-      village, appearance, arena_view, charge);
-    this._iq = iq;
+  }) {
+    super(data);
+    this._iq = data.iq;
   }
 
   get iq(): number { return this._iq; }
@@ -33,7 +32,7 @@ export class inventClanNinja extends lightningNinja {
 
 export class engineer extends inventClanNinja {
 
-  constructor (
+  constructor (data: {
     name: string,
     health: number,
     chakra: number,
@@ -44,9 +43,8 @@ export class engineer extends inventClanNinja {
     arena_view: string,
     charge: number,
     iq: number,
-  ) {
-    super(name, health, chakra, rank, organization,
-      village, appearance, arena_view, charge, iq);
+  }) {
+    super(data);
   }
 
   studyEnemy(arena: Opponents): Opponents {
@@ -58,7 +56,7 @@ export class engineer extends inventClanNinja {
 
 export class chemist extends inventClanNinja {
 
-  constructor (
+  constructor (data: {
     name: string,
     health: number,
     chakra: number,
@@ -69,9 +67,8 @@ export class chemist extends inventClanNinja {
     arena_view: string,
     charge: number,
     iq: number,
-  ) {
-    super(name, health, chakra, rank, organization,
-      village, appearance, arena_view, charge, iq);
+  }) {
+    super(data);
   }
 
   acidRain(arena: Opponents): Opponents {

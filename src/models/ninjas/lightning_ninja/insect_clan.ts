@@ -6,7 +6,7 @@ import {Action} from "../../opponents/action";
 export class insectClanNinja extends lightningNinja {
   "_bug count": number;
 
-  constructor (
+  constructor (data: {
     name: string,
     health: number,
     chakra: number,
@@ -17,10 +17,9 @@ export class insectClanNinja extends lightningNinja {
     arena_view: string,
     charge: number,
     bug_count: number,
-  ) {
-    super(name, health, chakra, rank, organization,
-      village, appearance, arena_view, charge);
-    this["_bug count"] = bug_count;
+  }) {
+    super(data);
+    this["_bug count"] = data.bug_count;
   }
 
   get bugCount(): number { return this["_bug count"]; }
@@ -34,7 +33,7 @@ export class insectClanNinja extends lightningNinja {
 
 export class beeKeeper extends insectClanNinja {
 
-  constructor (
+  constructor (data: {
     name: string,
     health: number,
     chakra: number,
@@ -45,9 +44,8 @@ export class beeKeeper extends insectClanNinja {
     arena_view: string,
     charge: number,
     bug_count: number,
-  ) {
-    super(name, health, chakra, rank, organization, village,
-      appearance, arena_view, charge, bug_count);
+  }) {
+    super(data);
   }
 
   beeCloud(arena: Opponents): Opponents {
@@ -59,7 +57,7 @@ export class beeKeeper extends insectClanNinja {
 
 export class antKing extends insectClanNinja {
 
-  constructor (
+  constructor (data: {
     name: string,
     health: number,
     chakra: number,
@@ -70,9 +68,8 @@ export class antKing extends insectClanNinja {
     arena_view: string,
     charge: number,
     bug_count: number,
-  ) {
-    super(name, health, chakra, rank, organization, village,
-      appearance, arena_view, charge, bug_count);
+  }) {
+    super(data);
   }
 
   anthillRescue(arena: Opponents): Opponents {

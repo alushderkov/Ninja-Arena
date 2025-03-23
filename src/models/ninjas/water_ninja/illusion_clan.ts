@@ -6,7 +6,7 @@ import {Action} from "../../opponents/action";
 export class illusionClanNinja extends waterNinja {
   _eye_level: number;
 
-  constructor(
+  constructor(data: {
     name: string,
     health: number,
     chakra: number,
@@ -17,10 +17,9 @@ export class illusionClanNinja extends waterNinja {
     arena_view: string,
     water_volume: number,
     eye_level: number,
-  ) {
-    super(name, health, chakra, rank, organization, village,
-      appearance, arena_view, water_volume);
-    this._eye_level = eye_level;
+  }) {
+    super(data);
+    this._eye_level = data.eye_level;
   }
 
   get eyeLevel(): number { return this._eye_level; }
@@ -35,7 +34,7 @@ export class illusionClanNinja extends waterNinja {
 
 export class clairvoyant extends illusionClanNinja {
 
-  constructor(
+  constructor(data: {
     name: string,
     health: number,
     chakra: number,
@@ -46,9 +45,8 @@ export class clairvoyant extends illusionClanNinja {
     arena_view: string,
     water_volume: number,
     eye_level: number,
-  ) {
-    super(name, health, chakra, rank, organization, village,
-      appearance, arena_view, water_volume, eye_level);
+  }) {
+    super(data);
   }
 
   evadeAttack(arena: Opponents): Opponents {
@@ -60,7 +58,7 @@ export class clairvoyant extends illusionClanNinja {
 
 export class absorber extends illusionClanNinja {
 
-  constructor(
+  constructor(data: {
     name: string,
     health: number,
     chakra: number,
@@ -71,9 +69,8 @@ export class absorber extends illusionClanNinja {
     arena_view: string,
     water_volume: number,
     eye_level: number,
-  ) {
-    super(name, health, chakra, rank, organization, village,
-      appearance, arena_view, water_volume, eye_level);
+  }) {
+    super(data);
   }
 
   takeChakra(arena: Opponents): Opponents {

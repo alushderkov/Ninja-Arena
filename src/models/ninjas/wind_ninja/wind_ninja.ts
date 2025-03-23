@@ -5,7 +5,7 @@ import {Opponents} from "../../opponents/opponents";
 export class windNinja extends Ninja {
   "_wind speed": number;
 
-  constructor (
+  constructor (data: {
     name: string,
     health: number,
     chakra: number,
@@ -15,10 +15,9 @@ export class windNinja extends Ninja {
     appearance: string,
     arena_view: string,
     wind_speed: number,
-  ) {
-    super(name, health, chakra, rank, organization,
-      village, appearance, arena_view);
-    this["_wind speed"] = wind_speed;
+  }) {
+    super(data);
+    this["_wind speed"] = data.wind_speed;
   }
 
   get windSpeed() { return this["_wind speed"]; }

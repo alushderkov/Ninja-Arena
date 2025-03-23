@@ -6,7 +6,7 @@ import {Action} from "../../opponents/action";
 export class shadowClanNinja extends waterNinja {
   _shadow_size: number;
 
-  constructor(
+  constructor(data: {
     name: string,
     health: number,
     chakra: number,
@@ -17,10 +17,9 @@ export class shadowClanNinja extends waterNinja {
     arena_view: string,
     water_volume: number,
     shadow_size: number,
-  ) {
-    super(name, health, chakra, rank, organization, village,
-      appearance, arena_view, water_volume);
-    this._shadow_size = shadow_size;
+  }) {
+    super(data);
+    this._shadow_size = data.shadow_size;
   }
 
   get shadowSize(): number { return this._shadow_size; }
@@ -35,7 +34,7 @@ export class shadowClanNinja extends waterNinja {
 
 export class shadowMaster extends shadowClanNinja {
 
-  constructor(
+  constructor(data: {
     name: string,
     health: number,
     chakra: number,
@@ -46,9 +45,8 @@ export class shadowMaster extends shadowClanNinja {
     arena_view: string,
     water_volume: number,
     shadow_size: number,
-  ) {
-    super(name, health, chakra, rank, organization, village,
-      appearance, arena_view, water_volume, shadow_size);
+  }) {
+    super(data);
   }
 
   getFullChakra(arena: Opponents): Opponents {
@@ -60,7 +58,7 @@ export class shadowMaster extends shadowClanNinja {
 
 export class shadowGhost extends shadowClanNinja {
 
-  constructor(
+  constructor(data: {
     name: string,
     health: number,
     chakra: number,
@@ -71,9 +69,8 @@ export class shadowGhost extends shadowClanNinja {
     arena_view: string,
     water_volume: number,
     shadow_size: number,
-  ) {
-    super(name, health, chakra, rank, organization, village,
-      appearance, arena_view, water_volume, shadow_size);
+  }) {
+    super(data);
   }
 
   saveChakraAfterAttack(arena: Opponents): Opponents {

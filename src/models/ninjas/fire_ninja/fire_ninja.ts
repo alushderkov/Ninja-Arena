@@ -5,7 +5,7 @@ import {Opponents} from "../../opponents/opponents";
 export class fireNinja extends Ninja {
   "_flame power": number;
 
-  constructor (
+  constructor (data: {
     name: string,
     health: number,
     chakra: number,
@@ -15,10 +15,9 @@ export class fireNinja extends Ninja {
     appearance: string,
     arena_view: string,
     flame_power: number,
-  ) {
-    super(name, health, chakra, rank, organization,
-      village, appearance, arena_view);
-    this["_flame power"] = flame_power;
+  }) {
+    super(data);
+    this["_flame power"] = data.flame_power;
   }
 
   get flamePower() { return this["_flame power"]; }

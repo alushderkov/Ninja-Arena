@@ -6,7 +6,7 @@ import {Action} from "../../opponents/action";
 export class eyesClanNinja extends fireNinja {
   _eye_level: number;
 
-  constructor(
+  constructor(data: {
     name: string,
     health: number,
     chakra: number,
@@ -17,10 +17,9 @@ export class eyesClanNinja extends fireNinja {
     arena_view: string,
     flame_power: number,
     eye_level: number,
-  ) {
-    super(name, health, chakra, rank, organization,
-      village, appearance, arena_view, flame_power);
-    this._eye_level = eye_level;
+  }) {
+    super(data);
+    this._eye_level = data.eye_level;
   }
 
   get eyeLevel(): number { return this._eye_level; }
@@ -34,7 +33,7 @@ export class eyesClanNinja extends fireNinja {
 
 export class devilEyeNinja extends eyesClanNinja {
 
-  constructor(
+  constructor(data: {
     name: string,
     health: number,
     chakra: number,
@@ -45,9 +44,8 @@ export class devilEyeNinja extends eyesClanNinja {
     arena_view: string,
     flame_power: number,
     eye_level: number,
-  ) {
-    super(name, health, chakra, rank, organization, village,
-      appearance, arena_view, flame_power, eye_level);
+  }) {
+    super(data);
   }
 
   sacrifice(arena: Opponents): Opponents {
@@ -59,7 +57,7 @@ export class devilEyeNinja extends eyesClanNinja {
 
 export class sensorNinja extends eyesClanNinja {
 
-  constructor(
+  constructor(data: {
     name: string,
     health: number,
     chakra: number,
@@ -70,9 +68,8 @@ export class sensorNinja extends eyesClanNinja {
     arena_view: string,
     flame_power: number,
     eye_level: number,
-  ) {
-    super(name, health, chakra, rank, organization, village,
-      appearance, arena_view, flame_power, eye_level);
+  }) {
+    super(data);
   }
 
   evadeAttack(arena: Opponents): Opponents {

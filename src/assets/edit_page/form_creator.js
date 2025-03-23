@@ -1,4 +1,5 @@
 import {createNinja} from "../../../build/components/ninjaCreator.js";
+import {LocalStorageAccessor} from "../localStorageAccessor.js";
 
 let classData = {};
 export function processNinjasData() {
@@ -55,7 +56,7 @@ export function updateClassSelector() {
   addClasses('AbstractNinja', selector);
 }
 
-export function updateForm(className, currentContainer) {
+export async function updateForm(className, currentContainer) {
 
   function addFieldsForChosenClass(form) {
     let currentClass = className;
@@ -100,14 +101,11 @@ export function updateForm(className, currentContainer) {
       createNinja(event, this, currentContainer, className);
       console.log(`Current container include: ${currentContainer}`);
 
-      // Сохраняем Container с информацией о типах объектов
-      const serializedContainer = currentContainer.map(ninja => ({
-        type: ninja.constructor.name, // Сохраняем имя класса
-        data: ninja, // Сохраняем данные объекта
-      }));
-      localStorage.setItem('Container', JSON.stringify(serializedContainer));
+      LocalStorageAccessor.serializeContainer(currentContainer, classData);
     });
   }
+
+  currentContainer = await LocalStorageAccessor.deserializeContainer(currentContainer);
 
   const formContainer =
     document.getElementById('formContainer');

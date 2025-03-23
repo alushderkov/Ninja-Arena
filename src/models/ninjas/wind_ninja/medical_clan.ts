@@ -6,7 +6,7 @@ import {Action} from "../../opponents/action";
 export class medicalClanNinja extends windNinja {
   _experience: number;
 
-  constructor (
+  constructor (data: {
     name: string,
     health: number,
     chakra: number,
@@ -15,12 +15,11 @@ export class medicalClanNinja extends windNinja {
     village: Villages,
     appearance: string,
     arena_view: string,
-    charge: number,
+    wind_speed: number,
     experience: number,
-  ) {
-    super(name, health, chakra, rank, organization,
-      village, appearance, arena_view, charge);
-    this._experience = experience;
+  }) {
+    super(data);
+    this._experience = data.experience;
   }
 
   get experience(): number { return this._experience; }
@@ -34,7 +33,7 @@ export class medicalClanNinja extends windNinja {
 
 export class militaryDoctor extends medicalClanNinja {
 
-  constructor (
+  constructor (data: {
     name: string,
     health: number,
     chakra: number,
@@ -43,11 +42,10 @@ export class militaryDoctor extends medicalClanNinja {
     village: Villages,
     appearance: string,
     arena_view: string,
-    charge: number,
+    wind_speed: number,
     experience: number,
-  ) {
-    super(name, health, chakra, rank, organization,
-      village, appearance, arena_view, charge, experience);
+  }) {
+    super(data);
   }
 
   ligation(arena: Opponents): Opponents {
@@ -59,7 +57,7 @@ export class militaryDoctor extends medicalClanNinja {
 
 export class neurosurgeon extends medicalClanNinja {
 
-  constructor (
+  constructor (data: {
     name: string,
     health: number,
     chakra: number,
@@ -68,11 +66,10 @@ export class neurosurgeon extends medicalClanNinja {
     village: Villages,
     appearance: string,
     arena_view: string,
-    charge: number,
+    wind_speed: number,
     experience: number,
-  ) {
-    super(name, health, chakra, rank, organization,
-      village, appearance, arena_view, charge, experience);
+  }) {
+    super(data);
   }
 
   surgery(arena: Opponents): Opponents {

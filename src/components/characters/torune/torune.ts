@@ -2,6 +2,15 @@ import {antKing} from "../../../models/ninjas/lightning_ninja/insect_clan";
 import {Rank} from "../../../models/ninjas/ninja";
 import {baseImagesPath} from "../../../models/ninjas/ninja";
 
-export const Torune = new antKing("Torune", 1300, 1000, Rank.C, "anbu",
-  "Konohagakure", `${baseImagesPath}/torune/images/torune_ava.jpg`,
-  `${baseImagesPath}/torune/images/torune_arena.jpg`, 1, 2000);
+export const Torune = new antKing({
+  name: "Torune",
+  health: 1300,
+  chakra: 1000,
+  rank: Rank.C,
+  organization: "anbu",
+  village: "Konohagakure",
+  appearance: `${baseImagesPath}/torune/images/torune_ava.jpg`,
+  arena_view: `${baseImagesPath}/torune/images/torune_arena.jpg`,
+  charge: 1,
+  bug_count: 2000
+});
