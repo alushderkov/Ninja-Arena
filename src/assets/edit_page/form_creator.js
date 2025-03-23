@@ -148,9 +148,46 @@ function createField(field) {
     subField.appendChild(select);
   }
 
+  function createFileInput(subField) {
+    const container = document.createElement('div');
+    container.classList.add('file-input');
+
+    const textInput = document.createElement('input');
+    textInput.type = 'text';
+    textInput.classList.add('file-input__text');
+    textInput.name = field.name;
+    textInput.placeholder = field.placeholder;
+    textInput.readOnly = true;
+
+    const fileInput = document.createElement('input');
+    fileInput.type = 'file';
+    fileInput.classList.add('file-input__file');
+    fileInput.name = field.name;
+    fileInput.accept = 'image/*';
+
+    fileInput.addEventListener('change', function () {
+      if (this.files && this.files[0]) {
+        textInput.value = `../../../../src/assets/edit_page/edit_pictures/` + this.files[0].name;
+        console.log(textInput.value);
+      }
+    });
+
+    fileInput.addEventListener('click', function () {
+      textInput.value = '';
+    });
+
+    container.appendChild(fileInput);
+    container.appendChild(textInput);
+
+    subField.appendChild(container);
+  }
+
   const result = document.createElement('div');
 
-  if (field.type === 'select') {
+  if (field.name === 'appearance' || field.name === 'arena_view') {
+    createLabel(result);
+    createFileInput(result);
+  } else if (field.type === 'select') {
     createLabel(result);
     createSelect(result);
   } else {

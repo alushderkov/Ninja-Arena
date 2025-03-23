@@ -35,10 +35,14 @@ export class Card {
         ${character.chakra}pt
       </div>
     `;
+
+    const rankMap = { 1: 'A', 2: 'B', 3: 'C', 4: 'S', 5: 'K' };
+    const rankString = rankMap[character.rank] || character.rank;
+
     this._rank = `
       <div class="character-card__field character-card__field_property">Ninja rank</div>
       <div class="character-card__field character-card__field_value">
-        ${character.rank}
+        ${rankString}
       </div>
     `;
     this._organization = `
