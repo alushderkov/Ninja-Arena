@@ -58,6 +58,26 @@ export function updateClassSelector() {
 
 export async function updateForm(className, currentContainer) {
 
+  function resetCharacterCard() {
+    const card = document.querySelector('.character-card');
+    if (!card) return;
+
+    const nameElement = card.querySelector('.character-card__name');
+    if (nameElement) nameElement.textContent = '';
+
+    const propertyElements = card.querySelectorAll('.character-card__field_property');
+    for (let i = 0; i < propertyElements.length; i++) {
+      const valueElement = propertyElements[i].nextElementSibling;
+      if (valueElement && valueElement.classList.contains('character-card__field_value')) {
+        valueElement.textContent = '';
+      }
+    }
+
+    updateFieldValue(card, 'Village', 'Konohagakure');
+    updateFieldValue(card, 'Organization', 'none');
+    updateFieldValue(card, 'Ninja rank', 'A');
+  }
+
   function addFieldsForChosenClass(form) {
     let currentClass = className;
 
@@ -105,6 +125,8 @@ export async function updateForm(className, currentContainer) {
     });
   }
 
+  resetCharacterCard();
+
   currentContainer = await LocalStorageAccessor.deserializeContainer(currentContainer);
 
   const formContainer =
@@ -150,23 +172,6 @@ function createField(field) {
           };
         }
         break;
-    }
-  }
-
-  function updateFieldValue(card, propertyName, value) {
-    const propertyElements = card.querySelectorAll('.character-card__field_property');
-
-    for (let i = 0; i < propertyElements.length; i++) {
-
-      if ( propertyElements[i].textContent.trim() === propertyName ) {
-        const valueElement = propertyElements[i].nextElementSibling;
-
-        if ( valueElement && valueElement.classList.contains('character-card__field_value') ) {
-          valueElement.textContent = value;
-        }
-
-        break;
-      }
     }
   }
 
@@ -242,14 +247,18 @@ function createField(field) {
       }
     });
 
-    fileInput.addEventListener('click', function () {
-      textInput.value = '';
-    });
-
     container.appendChild(fileInput);
     container.appendChild(textInput);
 
     subField.appendChild(container);
+
+    fileInput.addEventListener('click', function () {
+      const cardImage = document.querySelector('.character-card__img');
+
+      fileInput.files = new DataTransfer().files;
+      textInput.value = '';
+      cardImage.src = '';
+    });
   }
 
   const result = document.createElement('div');
@@ -266,4 +275,21 @@ function createField(field) {
   }
 
   return result;
+}
+
+function updateFieldValue(card, propertyName, value) {
+  const propertyElements = card.querySelectorAll('.character-card__field_property');
+
+  for (let i = 0; i < propertyElements.length; i++) {
+
+    if ( propertyElements[i].textContent.trim() === propertyName ) {
+      const valueElement = propertyElements[i].nextElementSibling;
+
+      if ( valueElement && valueElement.classList.contains('character-card__field_value') ) {
+        valueElement.textContent = value;
+      }
+
+      break;
+    }
+  }
 }
