@@ -114,6 +114,62 @@ export async function updateForm(className, currentContainer) {
 
 function createField(field) {
 
+  function updateCharacterCard(fieldName, value) {
+    const card = document.querySelector('.character-card');
+    if (!card) return;
+
+    switch(fieldName) {
+      case 'name':
+        const nameElement = card.querySelector('.character-card__name');
+        if (nameElement) nameElement.textContent = value;
+        break;
+      case 'health':
+        updateFieldValue(card, 'Health', value);
+        break;
+      case 'chakra':
+        updateFieldValue(card, 'Chakra', value);
+        break;
+      case 'rank':
+        updateFieldValue(card, 'Ninja rank', value);
+        break;
+      case 'organization':
+        updateFieldValue(card, 'Organization', value);
+        break;
+      case 'village':
+        updateFieldValue(card, 'Village', value);
+        break;
+      case 'appearance':
+        const imgElement = card.querySelector('.character-card__img');
+        if (imgElement) {
+          imgElement.src = value;
+          imgElement.onerror = function() {
+            this.style.display = 'none';
+          };
+          imgElement.onload = function() {
+            this.style.display = '';
+          };
+        }
+        break;
+    }
+  }
+
+  function updateFieldValue(card, propertyName, value) {
+    const propertyElements = card.querySelectorAll('.character-card__field_property');
+
+    for (let i = 0; i < propertyElements.length; i++) {
+
+      if ( propertyElements[i].textContent.trim() === propertyName ) {
+        const valueElement = propertyElements[i].nextElementSibling;
+
+        if ( valueElement && valueElement.classList.contains('character-card__field_value') ) {
+          valueElement.textContent = value;
+        }
+
+        break;
+      }
+    }
+  }
+
   function createLabel(subField) {
     const label = document.createElement('label');
     label.textContent = field.placeholder;
@@ -122,9 +178,15 @@ function createField(field) {
 
   function createInput(subField) {
     const input = document.createElement('input');
+
     input.type = field.type;
     input.name = field.name;
     input.placeholder = field.range ? field.range : field.placeholder;
+
+    input.addEventListener('input', function() {
+      updateCharacterCard(field.name, this.value);
+    });
+
     subField.appendChild(input);
   }
 
@@ -143,6 +205,10 @@ function createField(field) {
 
     field.options.forEach(option => {
       createOption(select, option);
+    });
+
+    select.addEventListener('change', function() {
+      updateCharacterCard(field.name, this.value);
     });
 
     subField.appendChild(select);
@@ -167,8 +233,12 @@ function createField(field) {
 
     fileInput.addEventListener('change', function () {
       if (this.files && this.files[0]) {
-        textInput.value = `../../../../src/assets/edit_page/edit_pictures/` + this.files[0].name;
+        const filePath = `../../../../src/assets/edit_page/edit_pictures/${this.files[0].name}`;
+
+        textInput.value = filePath;
         console.log(textInput.value);
+
+        updateCharacterCard(field.name, filePath);
       }
     });
 

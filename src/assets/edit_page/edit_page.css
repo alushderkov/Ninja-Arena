@@ -117,4 +117,12 @@ button:hover {
     background-color: #2d2b3c;
 }
 
+.character-card__name {
+    font-size: 1em;
+}
+
+.character-card__field {
+    font-size: 1em;
+}
+
 

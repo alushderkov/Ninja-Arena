@@ -66,7 +66,7 @@ export class Card {
       `<div class="character-card character-card_colour">
         ${
           this._photo + this._name + this._health + this._chakra +
-          this._organization + this._village + this._rank 
+          this._village + this._organization + this._rank 
         }
       </div>`;
 
