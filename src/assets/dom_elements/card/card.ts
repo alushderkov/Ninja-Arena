@@ -9,6 +9,7 @@ export class Card {
   _rank: string;
   _organization: string;
   _village: string;
+  _edit: string;
 
   constructor(character: Ninja) {
     this._character = character;
@@ -57,19 +58,66 @@ export class Card {
         ${character.village}
       </div>
     `;
+    this._edit = `
+        <div class="character-card__edit_button">EDIT</div>
+    `;
   }
 
   makeCard(): string {
     let result: string;
 
     result =
-      `<div class="character-card character-card_colour">
+      `<div class="character-card character-card_colour" id="${this._character.name}">
         ${
           this._photo + this._name + this._health + this._chakra +
-          this._village + this._organization + this._rank 
+          this._village + this._organization + this._rank + this._edit
         }
-      </div>`;
+      </div>
+      `;
 
     return result;
+  }
+
+  initCardEvents(cardElement: HTMLElement) {
+    const editButton = cardElement.querySelector('.character-card__edit_button');
+    if (!editButton) return;
+
+    const rankMap = { 1: 'A', 2: 'B', 3: 'C', 4: 'S', 5: 'K' };
+    const rankString = rankMap[this._character.rank] || this._character.rank;
+
+    editButton.addEventListener("click", (event) => {
+      event.stopPropagation();
+
+      let appearancePath = this._character.appearance;
+      if (appearancePath) {
+        appearancePath = this.normalizeImagePath(appearancePath);
+      }
+
+      const characterData = {
+        name: this._character.name,
+        appearance: appearancePath,
+        health: this._character.health,
+        chakra: this._character.chakra,
+        rank: rankString,
+        organization: this._character.organization,
+        village: this._character.village,
+        ninjaType: this._character.constructor.name
+      };
+
+      sessionStorage.setItem('editCharacterData', JSON.stringify(characterData));
+
+      const editPagePath = 'OOTPiSP/src/assets/edit_page/edit_page.html';
+      window.location.href = new URL(editPagePath, window.location.origin).href;
+    });
+  }
+
+  private normalizeImagePath(path: string): string {
+
+    if (!path) return path;
+
+    path = path.replace(/src\//g, '');
+    path = path.replace(/^(\.\.\/)+/, '../../');
+
+    return path;
   }
 }

@@ -1,5 +1,5 @@
 import {Container} from "../../../build/components/container.js";
-import {processNinjasData, updateClassSelector, updateForm} from "./form_creator.js";
+import {processNinjasData, updateClassSelector, updateForm, fillFormFromSessionData} from "./form_creator.js";
 
 processNinjasData();
 
@@ -18,7 +18,14 @@ document.getElementById('classSelector')
 });
 
 window.addEventListener('load', () => {
+
   setTimeout(() => {
+    const editData = sessionStorage.getItem('editCharacterData');
+    if (editData) {
+      const characterData = JSON.parse(editData);
+      fillFormFromSessionData(characterData);
+    }
+
     const container_left =
       document.getElementsByClassName('container_left')[0];
     const container_right =

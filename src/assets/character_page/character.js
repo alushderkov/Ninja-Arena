@@ -9,9 +9,13 @@ async function initializeContainer(button) {
   let cards = new CardContainer(containerInstance);
 
   button.addEventListener("click", () => {
-      card.innerHTML = cards.searchHTMLCard(input.value);
+    const searchResult = cards.searchHTMLCard(input.value);
+    card.innerHTML = searchResult.html;
+
+    if (searchResult.init && card.firstElementChild) {
+      searchResult.init(card.firstElementChild);
     }
-  )
+  });
 }
 
 const card = document.getElementsByClassName(

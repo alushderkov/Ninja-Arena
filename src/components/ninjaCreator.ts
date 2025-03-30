@@ -18,6 +18,14 @@ export function createNinja(
   try {
     const ninja = createDynamicNinja(className, ninjaData);
 
+    const name = ninjaData.name;
+    const existingNinjaIndex = container.findIndex(n => n.name === name);
+
+    if (existingNinjaIndex !== -1) {
+      container.splice(existingNinjaIndex, 1);
+      console.log(`Removed existing ninja with name ${name}`);
+    }
+
     console.log('Object was created:', ninja);
     container.push(ninja);
 

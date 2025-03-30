@@ -8,6 +8,8 @@ async function initializeContainer(container) {
 
   let cards = new CardContainer(containerInstance);
   container.innerHTML = cards.createHTMLCode();
+
+  cards.initCardsEvents(container);
 }
 
 let container =

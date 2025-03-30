@@ -293,3 +293,60 @@ function updateFieldValue(card, propertyName, value) {
     }
   }
 }
+
+export function fillFormFromSessionData(characterData) {
+
+  function setNinjaClass(ninjaType) {
+    const classSelector = document.getElementById('classSelector');
+    classSelector.value = ninjaType;
+    classSelector.dispatchEvent(new Event('change'));
+  }
+
+  function updateImageCard(imagePath) {
+    const imgElement = document.querySelector('.character-card__img');
+    if (!imgElement) return;
+
+    imgElement.src = imagePath;
+    imgElement.onerror = () => imgElement.style.display = 'none';
+    imgElement.onload = () => imgElement.style.display = '';
+  }
+
+  function fillFileInput(form, value) {
+    const textInput = form.querySelector('.file-input__text');
+    if (textInput) {
+      textInput.value = value;
+      textInput.dispatchEvent(new Event('input'));
+    }
+  }
+
+  function fillFormField(input, value) {
+    input.value = value;
+    const eventType = input.tagName === 'SELECT' ? 'change' : 'input';
+    input.dispatchEvent(new Event(eventType));
+  }
+
+  setNinjaClass(characterData.ninjaType);
+
+  setTimeout(() => {
+    const form = document.querySelector('.form-grid');
+    if (!form) return;
+
+    Object.entries(characterData).forEach(([key, value]) => {
+      if (key === 'ninjaType') return;
+
+      const input = form.querySelector(`[name="${key}"]`);
+      if (!input) return;
+
+      if (key === 'appearance') {
+        updateImageCard(value);
+        fillFileInput(form, value);
+        return;
+      }
+
+      fillFormField(input, value);
+    });
+
+    sessionStorage.removeItem('editCharacterData');
+  }, 100);
+
+}
