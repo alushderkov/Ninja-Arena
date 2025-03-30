@@ -117,11 +117,25 @@ export async function updateForm(className, currentContainer) {
     createForm(form);
     formContainer.appendChild(form);
 
+    const classSelector = document.getElementById('classSelector');
+    const urlParams = new URLSearchParams(window.location.search);
+    const isEditMode = urlParams.get('source') === 'card';
+
+    if (isEditMode && classSelector) {
+      classSelector.disabled = true;
+    }
+
     form.addEventListener('submit', function (event) {
+      classSelector.disabled = false;
+
       createNinja(event, this, currentContainer, className);
       console.log(`Current container include: ${currentContainer}`);
 
       LocalStorageAccessor.serializeContainer(currentContainer, classData);
+
+      if (isEditMode && classSelector) {
+        setTimeout(() => { classSelector.disabled = true; }, 0);
+      }
     });
   }
 
@@ -187,6 +201,13 @@ function createField(field) {
     input.type = field.type;
     input.name = field.name;
     input.placeholder = field.range ? field.range : field.placeholder;
+
+    const urlParams = new URLSearchParams(window.location.search);
+    const source = urlParams.get('source');
+    if (field.name === 'name' && source === 'card') {
+      input.readOnly = true;
+    }
+
 
     input.addEventListener('input', function() {
       updateCharacterCard(field.name, this.value);

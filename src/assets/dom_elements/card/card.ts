@@ -106,7 +106,7 @@ export class Card {
 
       sessionStorage.setItem('editCharacterData', JSON.stringify(characterData));
 
-      const editPagePath = 'OOTPiSP/src/assets/edit_page/edit_page.html';
+      const editPagePath = 'OOTPiSP/src/assets/edit_page/edit_page.html?source=card';
       window.location.href = new URL(editPagePath, window.location.origin).href;
     });
   }
