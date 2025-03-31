@@ -1,4 +1,4 @@
-export class LocalStorageAccessor{
+export class LocalStorageAccessor {
 
   static serializeContainer(container, classData) {
     const serializedContainer = container.map(ninja => {
