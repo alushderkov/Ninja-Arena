@@ -1,4 +1,5 @@
-import {LocalStorageAccessor} from "../localStorageAccessor.js";
+import { LocalStorageAccessor } from "../localStorageAccessor.js";
+import { uploadContainer, downloadCurrentContainer } from "./file_de_serialize.js";
 
 async function initializeContainer(container) {
   let {Container} = await import('../../../build/components/container.js');
@@ -12,13 +13,39 @@ async function initializeContainer(container) {
   cards.initCardsEvents(container);
 }
 
-let container =
-  document.getElementsByClassName("container")[0];
+function setupButtons() {
+  const uploadBtn = document.querySelector('.button-container .button:nth-child(1)');
+  const downloadBtn = document.querySelector('.button-container .button:nth-child(2)');
 
-window.onload = async () => {
-  if (container) {
-    await initializeContainer(container);
+  uploadBtn.addEventListener('click', async () => {
+    try {
+      await uploadContainer();
+      alert('Container uploaded successfully! Page will reload.');
+      window.location.reload();
+    } catch (error) {
+      alert(`Error uploading container: ${error.message}`);
+      console.error('Upload error:', error);
+    }
+  });
+
+  downloadBtn.addEventListener('click', async () => {
+    try {
+      await downloadCurrentContainer();
+      alert('Container downloaded successfully!');
+    } catch (error) {
+      alert(`Error downloading container: ${error.message}`);
+      console.error('Download error:', error);
+    }
+  });
+}
+
+document.addEventListener('DOMContentLoaded', async () => {
+  const containerElement = document.getElementsByClassName("container")[0];
+
+  if (containerElement) {
+    await initializeContainer(containerElement);
+    setupButtons();
   } else {
     console.error("Container element not found.");
   }
-};
+});

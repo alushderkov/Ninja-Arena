@@ -17,7 +17,7 @@ export function processNinjasData() {
       .catch( error => console.error('Ошибка загрузки JSON:', error) );
   }
 
-  fetchData(`classes.json`);
+  fetchData(`../ninjaData/classes.json`);
 }
 function addClasses(className, selector, level = 0) {
 
