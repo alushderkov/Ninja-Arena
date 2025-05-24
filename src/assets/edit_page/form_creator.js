@@ -6,8 +6,8 @@ export function processNinjasData() {
 
   function processJSONData(JSONData) {
     classData = JSONData.classes;
-    addClasses('AbstractNinja', document.getElementById('classSelector'));
-    updateForm('AbstractNinja');
+    addClasses('Ninja', document.getElementById('classSelector'));
+    updateForm('Ninja');
   }
 
   function fetchData(pathToJSON) {
@@ -53,7 +53,7 @@ export function updateClassSelector() {
   const selector = document.getElementById('classSelector');
 
   selector.innerHTML = '';
-  addClasses('AbstractNinja', selector);
+  addClasses('Ninja', selector);
 }
 
 export async function updateForm(className, currentContainer) {

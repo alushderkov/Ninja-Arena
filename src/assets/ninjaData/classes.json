@@ -1,16 +1,50 @@
 {
   "classes": {
-    "AbstractNinja": {
+    "Ninja": {
       "fields": [
-        { "name": "name", "type": "text", "placeholder": "Name" },
-        { "name": "health", "type": "number", "placeholder": "Health", "range": "from 500 to 3000" },
-        { "name": "chakra", "type": "number", "placeholder": "Chakra", "range": "from 300 to 1500" },
-        { "name": "rank", "type": "select", "options": ["A", "B", "C", "S", "K"], "placeholder": "Rank" },
-        { "name": "organization",
+        {
+          "name": "name",
+          "type": "text",
+          "placeholder": "Name"
+        },
+        {
+          "name": "health",
+          "type": "number",
+          "placeholder": "Health",
+          "range": "from 500 to 3000"
+        },
+        {
+          "name": "chakra",
+          "type": "number",
+          "placeholder": "Chakra",
+          "range": "from 300 to 1500"
+        },
+        {
+          "name": "rank",
           "type": "select",
-          "options": ["none", "akatsuki", "anbu", "sanins", "orodevils"],
-          "placeholder": "Organization" },
-        { "name": "village",
+          "options": [
+            "A",
+            "B",
+            "C",
+            "S",
+            "K"
+          ],
+          "placeholder": "Rank"
+        },
+        {
+          "name": "organization",
+          "type": "select",
+          "options": [
+            "none",
+            "akatsuki",
+            "anbu",
+            "sanins",
+            "orodevils"
+          ],
+          "placeholder": "Organization"
+        },
+        {
+          "name": "village",
           "type": "select",
           "options": [
             "Konohagakure",
@@ -20,24 +54,55 @@
             "Uzushinogakure",
             "Amegakure",
             "Sunagakure",
-            "Otogakure"],
-          "placeholder": "Village" },
-        { "name": "appearance", "type": "text", "placeholder": "Appearance" },
-        { "name": "arena_view", "type": "text", "placeholder": "Arena View" }
+            "Otogakure"
+          ],
+          "placeholder": "Village"
+        },
+        {
+          "name": "appearance",
+          "type": "text",
+          "placeholder": "Appearance"
+        },
+        {
+          "name": "arena_view",
+          "type": "text",
+          "placeholder": "Arena View"
+        }
       ],
-      "children": ["fireNinja", "lightningNinja", "waterNinja", "windNinja"]
+      "children": [
+        "fireNinja",
+        "lightningNinja",
+        "waterNinja",
+        "windNinja"
+      ]
     },
     "fireNinja": {
       "fields": [
-        { "name": "flame_power", "type": "number", "placeholder": "Flame Power", "range": "from 0.1 to 3" }
+        {
+          "name": "flame_power",
+          "type": "number",
+          "placeholder": "Flame Power",
+          "range": "from 0.1 to 3"
+        }
       ],
-      "children": ["eyesClanNinja", "boneClanNinja"]
+      "children": [
+        "eyesClanNinja",
+        "boneClanNinja"
+      ]
     },
     "eyesClanNinja": {
       "fields": [
-        { "name": "eye_level", "type": "number", "placeholder": "Eye Level", "range": "from 1 to 5" }
+        {
+          "name": "eye_level",
+          "type": "number",
+          "placeholder": "Eye Level",
+          "range": "from 1 to 5"
+        }
       ],
-      "children": ["devilEyeNinja", "sensorNinja"]
+      "children": [
+        "devilEyeNinja",
+        "sensorNinja"
+      ]
     },
     "devilEyeNinja": {
       "fields": []
@@ -47,15 +112,26 @@
     },
     "boneClanNinja": {
       "fields": [
-        { "name": "bone_count", "type": "number", "placeholder": "Bone Count", "range": "from 100 to 1000" },
+        {
+          "name": "bone_count",
+          "type": "number",
+          "placeholder": "Bone Count",
+          "range": "from 100 to 1000"
+        },
         {
           "name": "cursed_mark",
           "type": "select",
-          "options": ["No", "Yes"],
+          "options": [
+            "No",
+            "Yes"
+          ],
           "placeholder": "Cursed Mark"
         }
       ],
-      "children": ["bonesInfinity", "denseBone"]
+      "children": [
+        "bonesInfinity",
+        "denseBone"
+      ]
     },
     "bonesInfinity": {
       "fields": []
@@ -65,15 +141,31 @@
     },
     "lightningNinja": {
       "fields": [
-        { "name": "charge", "type": "number", "placeholder": "Charge", "range": "from 0.1 to 3" }
+        {
+          "name": "charge",
+          "type": "number",
+          "placeholder": "Charge",
+          "range": "from 0.1 to 3"
+        }
       ],
-      "children": ["insectClanNinja", "inventClanNinja"]
+      "children": [
+        "insectClanNinja",
+        "inventClanNinja"
+      ]
     },
     "insectClanNinja": {
       "fields": [
-        { "name": "bug_count", "type": "number", "placeholder": "Bug Count", "range": "from 100 to 100000" }
+        {
+          "name": "bug_count",
+          "type": "number",
+          "placeholder": "Bug Count",
+          "range": "from 100 to 100000"
+        }
       ],
-      "children": ["beeKeeper", "antKing"]
+      "children": [
+        "beeKeeper",
+        "antKing"
+      ]
     },
     "beeKeeper": {
       "fields": []
@@ -83,9 +175,17 @@
     },
     "inventClanNinja": {
       "fields": [
-        { "name": "iq", "type": "number", "placeholder": "IQ", "range": "from 50 to 400" }
+        {
+          "name": "iq",
+          "type": "number",
+          "placeholder": "IQ",
+          "range": "from 50 to 400"
+        }
       ],
-      "children": ["engineer", "chemist"]
+      "children": [
+        "engineer",
+        "chemist"
+      ]
     },
     "engineer": {
       "fields": []
@@ -95,15 +195,31 @@
     },
     "waterNinja": {
       "fields": [
-        { "name": "water_volume", "type": "number", "placeholder": "Water Volume", "range": "from 0.1 to 3" }
+        {
+          "name": "water_volume",
+          "type": "number",
+          "placeholder": "Water Volume",
+          "range": "from 0.1 to 3"
+        }
       ],
-      "children": ["illusionClanNinja", "shadowClanNinja"]
+      "children": [
+        "illusionClanNinja",
+        "shadowClanNinja"
+      ]
     },
     "illusionClanNinja": {
       "fields": [
-        { "name": "eye_level", "type": "number", "placeholder": "Eye Level", "range": "from 1 to 5" }
+        {
+          "name": "eye_level",
+          "type": "number",
+          "placeholder": "Eye Level",
+          "range": "from 1 to 5"
+        }
       ],
-      "children": ["clairvoyant", "absorber"]
+      "children": [
+        "clairvoyant",
+        "absorber"
+      ]
     },
     "clairvoyant": {
       "fields": []
@@ -113,9 +229,17 @@
     },
     "shadowClanNinja": {
       "fields": [
-        { "name": "shadow_size", "type": "number", "placeholder": "Shadow Size", "range": "from 0.1 to 3" }
+        {
+          "name": "shadow_size",
+          "type": "number",
+          "placeholder": "Shadow Size",
+          "range": "from 0.1 to 3"
+        }
       ],
-      "children": ["shadowMaster", "shadowGhost"]
+      "children": [
+        "shadowMaster",
+        "shadowGhost"
+      ]
     },
     "shadowMaster": {
       "fields": []
@@ -125,15 +249,31 @@
     },
     "windNinja": {
       "fields": [
-        { "name": "wind_speed", "type": "number", "placeholder": "Wind Speed", "range": "from 0.1 to 3" }
+        {
+          "name": "wind_speed",
+          "type": "number",
+          "placeholder": "Wind Speed",
+          "range": "from 0.1 to 3"
+        }
       ],
-      "children": ["huntingClanNinja", "medicalClanNinja"]
+      "children": [
+        "huntingClanNinja",
+        "medicalClanNinja"
+      ]
     },
     "huntingClanNinja": {
       "fields": [
-        { "name": "dog_count", "type": "number", "placeholder": "Dog Count", "range": "from 1 to 20" }
+        {
+          "name": "dog_count",
+          "type": "number",
+          "placeholder": "Dog Count",
+          "range": "from 1 to 20"
+        }
       ],
-      "children": ["wolfHunters", "birdwatchers"]
+      "children": [
+        "wolfHunters",
+        "birdwatchers"
+      ]
     },
     "wolfHunters": {
       "fields": []
@@ -143,9 +283,17 @@
     },
     "medicalClanNinja": {
       "fields": [
-        { "name": "experience", "type": "number", "placeholder": "Experience", "range": "from 0.5 to 3" }
+        {
+          "name": "experience",
+          "type": "number",
+          "placeholder": "Experience",
+          "range": "from 0.5 to 3"
+        }
       ],
-      "children": ["militaryDoctor", "neurosurgeon"]
+      "children": [
+        "militaryDoctor",
+        "neurosurgeon"
+      ]
     },
     "militaryDoctor": {
       "fields": []
