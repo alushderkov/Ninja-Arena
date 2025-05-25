@@ -7,7 +7,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
 // 1. Определяем имя класса из файла
-const customClassPath = resolve(__dirname, '../src/models/ninjas/ExtraClass.ts');
+const customClassPath = resolve(__dirname, '../../src/models/ninjas/ExtraClass.ts');
 const customClassContent = fs.readFileSync(customClassPath, 'utf-8');
 
 // Извлекаем имя класса
@@ -16,7 +16,7 @@ if (!classNameMatch) throw new Error('Class name not found in the file!');
 const className = classNameMatch[1];
 
 // 2. Удаляем класс из ninjaFactory.ts
-const ninjaFactoryPath = resolve(__dirname, '../src/models/factories/ninjaFactory.ts');
+const ninjaFactoryPath = resolve(__dirname, '../../src/models/factories/ninjaFactory.ts');
 let ninjaFactoryContent = fs.readFileSync(ninjaFactoryPath, 'utf-8');
 
 // Удаляем импорт класса
@@ -34,7 +34,7 @@ ninjaFactoryContent = ninjaFactoryContent.replace(
 fs.writeFileSync(ninjaFactoryPath, ninjaFactoryContent);
 
 // 3. Удаляем класс из classes.json
-const classesJsonPath = resolve(__dirname, '../src/assets/ninjaData/classes.json');
+const classesJsonPath = resolve(__dirname, '../../src/assets/ninjaData/classes.json');
 const classesJson = JSON.parse(fs.readFileSync(classesJsonPath, 'utf-8'));
 
 // Находим родителя класса
@@ -59,15 +59,6 @@ delete classesJson.classes[className];
 
 // Сохраняем обновленный JSON
 fs.writeFileSync(classesJsonPath, JSON.stringify(classesJson, null, 2));
-
-/* 4. (Опционально) Удаляем сам файл класса
-try {
-  fs.unlinkSync(customClassPath);
-  console.log(`🗑️ File ${customClassPath.split('/').pop()} deleted.`);
-} catch (err) {
-  console.log(`⚠️ Could not delete file (it may have been removed already).`);
-}
-*/
 
 console.log(`✅ Successfully removed ${className} from the hierarchy!`);
 if (parentClass) console.log(`Parent class: ${parentClass}`);

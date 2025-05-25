@@ -8,7 +8,7 @@ const __dirname = dirname(__filename);
 
 // 1. Анализ файла класса
 const customClassFileName = 'ExtraClass.ts';
-const customClassPath = resolve(__dirname, '../src/models/ninjas/', customClassFileName);
+const customClassPath = resolve(__dirname, '../../src/models/ninjas/', customClassFileName);
 
 if (!fs.existsSync(customClassPath)) {
   throw new Error(`File ${customClassFileName} not found!`);
@@ -34,7 +34,7 @@ const fields = fieldMatches.map(match => ({
 }));
 
 // 2. Обновляем ninjaFactory.ts
-const ninjaFactoryPath = resolve(__dirname, '../src/models/factories/ninjaFactory.ts');
+const ninjaFactoryPath = resolve(__dirname, '../../src/models/factories/ninjaFactory.ts');
 let ninjaFactoryContent = fs.readFileSync(ninjaFactoryPath, 'utf-8');
 
 // Добавляем импорт
@@ -61,7 +61,7 @@ ninjaFactoryContent = ninjaFactoryContent.slice(0, insertGlobalAt) +
 fs.writeFileSync(ninjaFactoryPath, ninjaFactoryContent);
 
 // 3. Обновляем classes.json
-const classesJsonPath = resolve(__dirname, '../src/assets/ninjaData/classes.json');
+const classesJsonPath = resolve(__dirname, '../../src/assets/ninjaData/classes.json');
 const classesJson = JSON.parse(fs.readFileSync(classesJsonPath, 'utf-8'));
 
 if (!classesJson.classes[parentClassName]) {

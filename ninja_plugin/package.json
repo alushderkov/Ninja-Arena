@@ -1,0 +1,13 @@
+{
+  "name": "ninja-plugin",
+  "version": "1.0.0",
+  "main": "src/index.js",
+  "scripts": {
+    "postinstall": "node scripts/install.js",
+    "preuninstall": "node scripts/uninstall.js"
+  },
+  "dependencies": {
+    "@types/node": "^22.15.21"
+  },
+  "type": "module"
+}
