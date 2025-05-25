@@ -6,7 +6,9 @@
   },
   "type": "module",
   "scripts": {
-    "postinstall": "npm run build",
-    "build": "rm -rf ./build && tsc && ts-add-js-extension --dir=build"
+    "install ninja-plugin": "npm install ./ninja_plugin && npm run build",
+    "uninstall ninja-plugin": "npm run preuninstall && npm uninstall ninja-plugin && npm run build",
+    "build": "rm -rf ./build && tsc && ts-add-js-extension --dir=build",
+    "preuninstall": "node ninja_plugin/scripts/uninstall.js"
   }
 }
