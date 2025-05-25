@@ -1,14 +1,21 @@
 {
   "devDependencies": {
     "@types/node": "^22.15.21",
+    "@types/readline-sync": "^1.4.8",
     "ts-add-js-extension": "^1.6.5",
-    "typescript": "^5.7.3"
+    "ts-node": "^10.9.2",
+    "tsx": "^4.19.4",
+    "typescript": "^5.8.3"
   },
   "type": "module",
   "scripts": {
     "install ninja-plugin": "npm install ./ninja_plugin && npm run build",
     "uninstall ninja-plugin": "npm run preuninstall && npm uninstall ninja-plugin && npm run build",
     "build": "rm -rf ./build && tsc && ts-add-js-extension --dir=build",
-    "preuninstall": "node ninja_plugin/scripts/uninstall.js"
+    "preuninstall": "node ninja_plugin/scripts/uninstall.js",
+    "design-patterns": "chcp 65001 && tsx design_patterns/src/index.ts"
+  },
+  "dependencies": {
+    "readline-sync": "^1.4.10"
   }
 }

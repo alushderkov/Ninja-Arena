@@ -110,5 +110,6 @@
   },
   "exclude": [
     "ninja_plugin/**/*",
+    "design_patterns/**/*"
   ]
 }
