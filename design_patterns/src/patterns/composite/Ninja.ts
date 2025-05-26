@@ -6,4 +6,8 @@ export class Ninja implements NinjaComponent {
   display(indent: number): void {
     console.log(`${' '.repeat(indent)}Ниндзя: ${this.name}, Оружие: ${this.weapon}`);
   }
+
+  getWeapons(): Set<string> {
+    return new Set([this.weapon]);
+  }
 }

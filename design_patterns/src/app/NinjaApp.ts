@@ -6,7 +6,6 @@ export class NinjaApp {
   private builder = new NinjaBuilder();
   private rootGroup?: NinjaGroup;
   private currentGroup?: NinjaGroup;
-  private groupStack: NinjaGroup[] = [];
 
   start() {
     console.log("=== Ниндзя-Конструктор ===");
@@ -22,7 +21,8 @@ export class NinjaApp {
       console.log("3. Добавить подгруппу");
       console.log("4. Показать структуру");
       console.log("5. Вернуться на уровень выше");
-      console.log("6. Выход");
+      console.log("6. Показать весь арсенал");
+      console.log("7. Выход");
 
       const choice = readline.question("Выберите действие: ");
 
@@ -43,6 +43,9 @@ export class NinjaApp {
           this.goUp();
           break;
         case '6':
+          this.displayWeapons();
+          break;
+        case '7':
           return;
         default:
           console.log("Неверный ввод!");
@@ -55,7 +58,6 @@ export class NinjaApp {
     this.builder = new NinjaBuilder();
     this.rootGroup = this.builder.createGroup(name).build();
     this.currentGroup = this.rootGroup;
-    this.groupStack = [];
     console.log(`Отряд "${name}" создан!`);
   }
 
@@ -98,4 +100,16 @@ export class NinjaApp {
     console.log("\n=== Структура отряда ===");
     this.rootGroup.display(0);
   }
+
+  private displayWeapons() {
+    if (!this.rootGroup) {
+      console.log("Нет структуры для отображения оружия!");
+      return;
+    }
+
+    const weapons = this.rootGroup.getWeapons();
+    console.log("\n=== Все уникальное оружие в отряде ===");
+    console.log(Array.from(weapons).join(", "));
+  }
+
 }

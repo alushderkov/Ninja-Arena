@@ -6,12 +6,15 @@ export class NinjaIterator implements Iterator<NinjaComponent> {
   constructor(private collection: NinjaComponent[]) {}
 
   next(): IteratorResult<NinjaComponent> {
+
     if (this.position >= this.collection.length) {
       return { done: true, value: null };
     }
 
-    const value = this.collection[this.position];
-    this.position++;
-    return { done: false, value };
+    return { done: false, value: this.collection[this.position++] };
+  }
+
+  isLast(): boolean {
+    return this.position >= this.collection.length - 1;
   }
 }
